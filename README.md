@@ -1,1 +1,9 @@
-# opensap_python_intro
+# About
+This repository contains several [Jupyter](https://jupyter.org/) notebooks. These notebooks
+are the course material for an upcoming [openSAP](https://open.sap.com/) course on [Python 🐍](https://www.python.org/).
+
+# Acknowledgements 
+The work on this material has been supported by 
+
+- The SQSL-Project of the FH Aachen: https://www.fh-aachen.de/en/hochschule/projekt-sqsl/
+- The [Stifterverband](https://www.stifterverband.org/) in the context of a *Senior-Fellowship für Innovationen in der digitalen Hochschullehre*: https://www.stifterverband.org/digital-lehrfellows-nrw/2019/drumm
