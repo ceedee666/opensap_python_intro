@@ -1,5 +1,6 @@
 repos:
-  - repo: https://github.com/kynan/nbstripout
+  - repo: https://github.com/tomcatling/black-nb
     rev: master
     hooks:
-      - id: nbstripout
+      - id: black-nb
+        args: [--clear-output]
