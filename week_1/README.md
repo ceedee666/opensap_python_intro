@@ -9,3 +9,7 @@
 - Using if statements
 - Using multiple if statements
 - Creating complex logical expressions
+
+
+## Notes
+Right answers for questions are **highlighted**
