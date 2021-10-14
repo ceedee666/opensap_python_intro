@@ -1,7 +1,7 @@
 # Week 1
 
-## Content
 
+## Content
 - First steps in Python
 - Using variables
 - Performing simple input and output
@@ -9,3 +9,7 @@
 - Using if statements
 - Using multiple if statements
 - Creating complex logical expressions
+
+
+## Notes
+Right answers for questions are **highlighted**
