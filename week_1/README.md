@@ -1,7 +1,7 @@
 # Week 1
 
-## Content
 
+## Content
 - First steps in Python
 - Using variables
 - Performing simple input and output
