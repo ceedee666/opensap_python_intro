@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/tomcatling/black-nb
-    rev: 0.5.0
+    rev: "0.6"
     hooks:
       - id: black-nb
-        args: [--clear-output]
+        args: [--verbose, --clear-output]
