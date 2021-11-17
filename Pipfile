@@ -9,6 +9,7 @@ jupyter = "*"
 [dev-packages]
 pre-commit = "*"
 black = "*"
+black-nb = "*"
 
 [requires]
 python_version = "3.9"
