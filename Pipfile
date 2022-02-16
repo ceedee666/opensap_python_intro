@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 jupyter = "*"
+pylint = "*"
 
 [dev-packages]
 pre-commit = "*"
