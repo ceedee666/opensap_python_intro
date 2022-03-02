@@ -58,6 +58,10 @@ code, std_out, error_out, _ = runcaptured()
 
 
 class Testing(unittest.TestCase):
+    def setUp(self) -> None:
+        self.code, self.std_out, self.error_out, _ = runcaptured()
+        return super().setUp()
+
     def test_st_fct(self):
         a = 5
         b = 13
@@ -65,7 +69,9 @@ class Testing(unittest.TestCase):
         result_fct = stupid_function(a, b)
         self.assertEqual(result_test, result_fct)
 
-    # def test_output():
+    def test_output(self):
+        expected_out = "Ditte is en Test\n"
+        self.assertEqual(expected_out, self.std_out)
 
 
 if __name__ == "__main__":
@@ -73,6 +79,3 @@ if __name__ == "__main__":
 
 """if error:
     print("Your solution is not yet correct.")"""
-
-
-# use ast to parse code to check if a print command was used
