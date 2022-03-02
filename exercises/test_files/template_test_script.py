@@ -50,17 +50,19 @@ def runcaptured(tracing=None, variables=None):
         return source, out[0], out[1], variables
 
 
-code, std_out, error_out, _ = runcaptured()
-
 # here test w/ std_out, error_out
 # possible to avoid terminal output of to-test-file? Or just don't care?
 # TODO: How to not abort test/run when error in to-test-file??
 
 
 class Testing(unittest.TestCase):
-    def setUp(self) -> None:
+
+    # see https://docs.python.org/3/library/unittest.html#class-and-module-fixtures
+    @classmethod
+    def setUpClass(self):
+        super().setUp()
         self.code, self.std_out, self.error_out, _ = runcaptured()
-        return super().setUp()
+        # AST parsing and assign member variable
 
     def test_st_fct(self):
         a = 5
@@ -76,6 +78,3 @@ class Testing(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-"""if error:
-    print("Your solution is not yet correct.")"""
