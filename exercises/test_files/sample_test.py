@@ -1,6 +1,7 @@
 import contextlib, io, ast, unittest
 
 
+
 @contextlib.contextmanager
 def capture():
     """Helper function to get std(out&err)"""
@@ -19,6 +20,7 @@ def capture():
         out[1] = out[1].getvalue()
 
 
+
 @contextlib.contextmanager
 def trace(t):
     try:
@@ -28,6 +30,7 @@ def trace(t):
     finally:
         if t:
             t.stop()
+
 
 
 def runcaptured(filename, tracing=None, variables=None):
@@ -43,20 +46,24 @@ def runcaptured(filename, tracing=None, variables=None):
         return source, out[0], out[1], variables
 
 
+
 class Analyzer(ast.NodeVisitor):
     """Sample Analyzer class to parse & process ast"""
 
     def __init__(self):
-        self.stats = []  # create empty stats list
+        self.stats = []                     # create empty stats list
 
-    def visit_If(self, node):  # list number of ifs in test file
-        self.stats.append(node.lineno)  # append line occurrences of ifs
+
+    def visit_If(self, node):               # list number of ifs in test file
+        self.stats.append(node.lineno)      # append line occurrences of ifs
         self.generic_visit(node)
-        self.num_ifs = len(self.stats)  # return no of ifs
+        self.num_ifs = len(self.stats)      # return no of ifs
+
 
     # TODO: remove report function when creating template
     def report(self):
         print(self.stats)
+
 
 
 class Testing(unittest.TestCase):
@@ -70,19 +77,19 @@ class Testing(unittest.TestCase):
         super().setUpClass()
         self.code, self.std_out, self.error_out, _ = runcaptured("sample_exercise.py")
 
+
     def test_ast_parse(self):
-        tree = ast.parse(self.code)  # build the ast
-        analyzer = Analyzer()  # create Analyzer instance
-        analyzer.visit(tree)  # visit the nodes of the ast
-        analyzer.report()  # report result(s)
+        tree = ast.parse(self.code)                         # build the ast
+        analyzer = Analyzer()                               # create Analyzer instance
+        analyzer.visit(tree)                                # visit the nodes of the ast
+        analyzer.report()                                   # report result(s)
 
         expected_ifs = 2
-        self.assertEqual(expected_ifs, analyzer.num_ifs)  # test number of ifs
+        self.assertEqual(expected_ifs, analyzer.num_ifs)    # test number of ifs
+
 
     def test_st_fct(self):
-        from sample_exercise import (
-            stupid_function,
-        )  # import function only where needed/tested
+        from sample_exercise import stupid_function         # import function only where needed/tested
 
         a = 5
         b = 13
@@ -90,6 +97,7 @@ class Testing(unittest.TestCase):
         fct_result = stupid_function(a, b)
 
         self.assertEqual(expected_result, fct_result)
+
 
     def test_output(self):
         expected_out = "Ditte is en Test\n"
