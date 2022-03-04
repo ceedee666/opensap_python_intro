@@ -48,39 +48,41 @@ def runcaptured(filename, tracing=None, variables=None):
         return source, out[0], out[1], variables
 
 
-
+####################################
+# Adapt tests & AST beginning here #
+####################################
 class Analyzer(ast.NodeVisitor):
-    """Sample Analyzer class to parse & process AST"""
+    """Sample Analyzer class to parse & process ast"""
 
     def __init__(self):
         self.stats = []                     # create empty stats list
 
 
-    def visit_If(self, node):               # list number of ifs in test file
-        self.stats.append(node.lineno)      # append line occurrences of ifs
+    def visit_If(self, node):
+        # adaption here
         self.generic_visit(node)
-        self.num_ifs = len(self.stats)      # return no of ifs
 
 
-    def report(self):
-        print(self.stats)
+    def visit_For(self, node):
+        # adaption here
+        self.generic_visit(node)
 
 
 
 class Testing(unittest.TestCase):
     """Sample Testing class with multiple tests"""
 
-    # TODO: add return messages for failed tests (assert...(x,y,msg=...))
-
     @classmethod
     def setUpClass(self):
         """Setup for just-once actions"""
 
         super().setUpClass()
-        self.code, self.std_out, self.error_out, _ = runcaptured("sample_exercise.py")
+        self.code, self.std_out, self.error_out, _ = runcaptured("exercise_name.py")    # change filename accordingly
 
 
     def test_ast_parse(self):
+        """Sample Analyzer class to parse & process AST"""
+
         tree = ast.parse(self.code)                         # build the AST
         analyzer = Analyzer()                               # create Analyzer instance
         analyzer.visit(tree)                                # visit the nodes of the AST
@@ -88,24 +90,23 @@ class Testing(unittest.TestCase):
 
         # test number of ifs
         expected_ifs = 3
-        self.assertEqual(expected_ifs, analyzer.num_ifs,
-            f"You did not use the demanded number of ifs (3), you used if clauses in lines: {analyzer.stats}")
+        self.assertEqual(expected_ifs, analyzer.num_ifs, "#CHANGE# - error return message")
 
 
     def test_st_fct(self):
-        from sample_exercise import stupid_function         # import function only where needed/tested
+        from template_exercise import template_function         # import function only where needed/tested
 
         a = 5
         b = 13
         expected_result = a**b
-        fct_result = stupid_function(a, b)
+        fct_result = template_function(a, b)
 
-        self.assertEqual(expected_result, fct_result, "Your function did not return the expected result.")
+        self.assertEqual(expected_result, fct_result, "#CHANGE# - error return message")
 
 
     def test_output(self):
         expected_out = "Ditte is en Test\n"
-        self.assertEqual(expected_out, self.std_out, "The output of your function did not generate the expected output")
+        self.assertEqual(expected_out, self.std_out, "#CHANGE# - error return message")
 
 
 if __name__ == "__main__":

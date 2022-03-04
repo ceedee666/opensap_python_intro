@@ -4,3 +4,4 @@
 
 ## Notes
 - import function only where needed/tested
+- adjust error return message
