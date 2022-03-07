@@ -50,13 +50,11 @@ def runcaptured(tracing=None, variables=None):
 
 class Analyzer(ast.NodeVisitor):
     def __init__(self):
-        self.stats = {"input": 0, "int": 0, "print": 0, "vars": set()}
+        self.stats = {"input": 0, "print": 0, "vars": set()}
 
     def visit_Call(self, node):
         if node.func.id == "input":
             self.stats["input"] += 1
-        if node.func.id == "int":
-            self.stats["int"] += 1
         elif node.func.id == "print":
             self.stats["print"] += 1
         self.generic_visit(node)
@@ -69,32 +67,11 @@ class Analyzer(ast.NodeVisitor):
 class Testing(TestCase):
     @mock.patch("builtins.input", create=True)
     def test_output(self, mocked_input):
-        mocked_input.side_effect = ["100", "99", "98"]
-        self.code, self.std_out, self.error_out, _ = runcaptured()
-        expected_out = "The largest number is 100"
-        self.assertEqual(
-            self.std_out.getvalue().strip(),
-            expected_out,
-            "For the input values 100, 99 and 98 the ouput of your program was not correct.",
-        )
+        mocked_input.side_effect = ["Christian", "Aachen", "Berlin", "Car"]
 
-        mocked_input.side_effect = ["1", "99", "99"]
         self.code, self.std_out, self.error_out, _ = runcaptured()
-        expected_out = "The largest number is 99"
-        self.assertEqual(
-            self.std_out.getvalue().strip(),
-            expected_out,
-            "For the input values 1, 99 and 99 the ouput of your program was not correct.",
-        )
-
-        mocked_input.side_effect = ["42", "42", "42"]
-        self.code, self.std_out, self.error_out, _ = runcaptured()
-        expected_out = "The largest number is 42"
-        self.assertEqual(
-            self.std_out.getvalue().strip(),
-            expected_out,
-            "For the input values 42, 42 and 42 the ouput of your program was not correct.",
-        )
+        expected_out = "Christian wants to travel from Aachen to Berlin by Car"
+        self.assertEquals(self.std_out.getvalue().strip(), expected_out)
 
     def test_source_code(self):
         with open("exercise.py", "r") as source:
@@ -103,32 +80,22 @@ class Testing(TestCase):
             analyzer = Analyzer()
             analyzer.visit(tree)
 
-            self.assertEqual(
+            self.assertEquals(
                 analyzer.stats["input"],
-                3,
-                f'You should use the input function three times but you only used it {analyzer.stats["input"]} times.',
+                4,
+                f'You should use the input function four times but you only used it {analyzer.stats["input"]} times.',
             )
-            self.assertEqual(
-                analyzer.stats["int"],
-                3,
-                f'You should use the int function three times but you only used it {analyzer.stats["input"]} times. The int function is required to convert the input into an integer number.',
-            )
-            self.assertEqual(
+            self.assertEquals(
                 analyzer.stats["print"],
                 1,
                 "You should use the print function one time.",
             )
 
             number_vars = len(analyzer.stats["vars"])
-            self.assertGreaterEqual(
-                number_vars,
-                3,
-                f"You should use at least three variables but you only used {number_vars} variables.",
-            )
-            self.assertLessEqual(
+            self.assertEquals(
                 number_vars,
                 4,
-                f"You should use not more than four variables but you used {number_vars} variables.",
+                f"You should use four variables but you only used {number_vars} variables.",
             )
 
 

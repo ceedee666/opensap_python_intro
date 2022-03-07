@@ -1,10 +1,16 @@
-"""
-Write a program that outputs the numbers from 1 to 100. All numbers that are divisible by three should be replaced by Fizz and all numbers that are divisible by 5 should be replaced by Buzz. Numbers that are divisible by both 3 and 5 will be replaced by "FizzBuzz".
-Note: You can check the divisibility with the modulo operator `%.:
-"""
-def exercise():
-    pass
-    #your code
-    
-    
-exercise()
+rows = int(input("Please enter the number of rows in the matrix: "))
+cols = int(input("Please enter the number of clumns in the matrix: "))
+
+print("Enter the matrix values: ")
+
+matrix = []
+
+for i in range(rows):
+    row = []
+    for j in range(cols):
+        value = int(input("Value: "))
+        row.append(value)
+    matrix.append(row)
+
+for row in matrix:
+    print("Sum of row:", sum(row))

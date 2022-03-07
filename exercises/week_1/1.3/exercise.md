@@ -16,5 +16,5 @@ Please enter a name: Christian
 Please enter a start: Aachen
 Please enter a destination: Berlin
 Please enter a means of transportation: Train
-Christian wants to travel from Aachen to Berlin by Train.
+Christian wants to travel from Aachen to Berlin by Train
 ```

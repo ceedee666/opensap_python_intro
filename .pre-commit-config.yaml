@@ -1,3 +1,4 @@
+exclude: "^exercises/test_files/"
 repos:
   - repo: https://github.com/tomcatling/black-nb
     rev: "0.6"
