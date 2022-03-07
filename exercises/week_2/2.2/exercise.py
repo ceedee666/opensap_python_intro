@@ -1,6 +1,7 @@
-# find the index of the coolest university of applied sciences (fh aachen), store it in a variable and print it out
-universities = [
-    ["TU Muenchen", "FH Kiel", "FH Bielefeld", "University Of Oxford"],
-    ["Hochschule Niederrhein", "FH Aachen", "FU Berlin"],
+star_wars_movies = [
+    ["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"],
+    ["A New Hope", "The Empire Strikes Back", "Return of the Jedi"],
+    ["The Force Awakens", "The Last Jedi", "The Rise of Skywalker"],
 ]
-# your code
+
+print(star_wars_movies[1][-1])
