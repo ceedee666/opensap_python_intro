@@ -1,11 +1,11 @@
 if 2 > 1:
-    print("Some output")
+    print("Ditte is en Test")
 
 
-def stupid_function(input1, input2):
-    """do stupid stuff to be tested"""
+def template_function(a, b):
+    """calculate a**b"""
 
-    result =
+    result = a**b
 
     if 2 < 4:
         return result
