@@ -19,7 +19,7 @@ Enter the matrix values:
 4
 5
 6
-Sum of row 1: 5
-Sum of row 2: 7
-Sum of row 3: 9
+Sum of row: 5
+Sum of row: 7
+Sum of row: 9
 ```
