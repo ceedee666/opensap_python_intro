@@ -1,11 +1,11 @@
 if 2 > 1:
-    print("Ditte is en Test")
+    print("Some output")
 
 
-def stupid_function(a, b):
-    """calculate a**b"""
+def stupid_function(input1, input2):
+    """do stupid stuff to be tested"""
 
-    result = a**b
+    result =
 
     if 2 < 4:
         return result

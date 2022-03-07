@@ -36,7 +36,6 @@ def trace(t):
 
 def runcaptured(filename, tracing=None, variables=None):
     """Run a specified python file and return source code, stdout, stderr and variables"""
-    # possible to avoid terminal output of to-test-file when running? Or just don't care?
 
     with open(filename) as f:
         source = f.read()
@@ -70,7 +69,6 @@ class Analyzer(ast.NodeVisitor):
 class Testing(unittest.TestCase):
     """Sample Testing class with multiple tests"""
 
-    # TODO: add return messages for failed tests (assert...(x,y,msg=...))
 
     @classmethod
     def setUpClass(self):
