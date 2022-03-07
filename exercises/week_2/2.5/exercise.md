@@ -11,7 +11,7 @@ Below is an example execution of the program:
 
 ```zsh
 Please enter the number of rows in the matrix: 3
-Please enter the number of clumns in the matriy: 2
+Please enter the number of clumns in the matrix: 2
 Enter the matrix values:
 1
 2
