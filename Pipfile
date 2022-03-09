@@ -11,6 +11,7 @@ pylint = "*"
 pre-commit = "*"
 black = "*"
 black-nb = "*"
+debugpy = "*"
 
 [requires]
 python_version = "3.9"
