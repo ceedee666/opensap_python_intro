@@ -1,5 +1,5 @@
 rows = int(input("Please enter the number of rows in the matrix: "))
-cols = int(input("Please enter the number of clumns in the matrix: "))
+cols = int(input("Please enter the number of columns in the matrix: "))
 
 print("Enter the matrix values: ")
 
