@@ -65,12 +65,14 @@ class Analyzer(ast.NodeVisitor):
             if node.func.attr == "append":
                 self.stats["append"] += 1
 
+        self.generic_visit(node)
+
     def visit_For(self, node):
         self.stats["for"] += 1
 
         for element in node.body:
             if isinstance(element, ast.For):
-                self.nested_for == True
+                self.nested_for = True
 
         self.generic_visit(node)
 
@@ -123,21 +125,21 @@ class Testing(TestCase):
             analyzer = Analyzer()
             analyzer.visit(tree)
 
-            self.assertEqual(
-                2,
+            self.assertGreaterEqual(
                 analyzer.stats["input"],
-                "You need to use two calls to the input function to solve this exercise.",
-            )
-
-            self.assertEqual(
-                2,
-                analyzer.stats["int"],
-                "You need to use two calls to the int function to convert to user input to type integer.",
+                3,
+                "You need to use three calls to the input function to solve this exercise.",
             )
 
             self.assertGreaterEqual(
-                1,
+                analyzer.stats["int"],
+                3,
+                "You need to use three calls to the int function to convert to user input to type integer.",
+            )
+
+            self.assertGreaterEqual(
                 analyzer.stats["append"],
+                1,
                 "You should use the append method to add the user input to the matrix.",
             )
 
