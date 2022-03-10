@@ -4,4 +4,7 @@ star_wars_movies = [
     ["The Force Awakens", "The Last Jedi", "The Rise of Skywalker"],
 ]
 
-print(star_wars_movies[1][-1])
+trilogy = int(input("Please enter the number of the Star Wars trilogy (1,2 or 3): "))
+film = int(input("Please enter the number of a film in the trilogy (1,2 or 3): "))
+
+print("You selected", star_wars_movies[trilogy - 1][film - 1])
