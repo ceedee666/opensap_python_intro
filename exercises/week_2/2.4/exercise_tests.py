@@ -95,7 +95,7 @@ class Testing(TestCase):
             or ("APPL" in output)
             or ("ORCL" in output)
         ):
-            self.fail("The ouput should only contain the stock symbols TSLA and ZM")
+            self.fail("The output should only contain the stock symbols TSLA and ZM")
 
     def test_source_code(self):
         with open("exercise.py", "r") as source:
