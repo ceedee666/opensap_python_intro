@@ -8,7 +8,11 @@
 
 - Use `template_test.py` and `template_exercise.py` to create your own exercises and tests
 - Adjust tests where commented (after `runcaptured()`)
-- Split tests into multiple files if you want to provide more and fine-grained feedback in CodeOcean (recommended!)
+- Split tests into 2 files:
+    - Functional tests - Is the code producing the required output?
+    - Structural tests - Are all demanded structures used (`if`, `for`, *function definition*...)?
+- Tests can be split into multiple files for larger exercises/tests to provide more and fine-grained feedback in
+  CodeOcean. Likely only necessary for complex tasks
 
 ## Notes
 
@@ -38,6 +42,7 @@ Suggestions for file names:
 # Linting
 
 - Copy-Paste `style_test.py` and `default.pylintrc` to the exercise
-- Copy-Paste default feedback message into text box
+- Copy-Paste the following *default feedback message* into text box:
+    - The formatting of your code differs from the recommendation. Please check the details below.
 - Set Score for linting file to 0
-- Done
+- **Done**
