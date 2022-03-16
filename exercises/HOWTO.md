@@ -28,6 +28,15 @@ See `sample_test.py` and `sample_exercise.py` for examples how to:
 - test the standard output of a user program
 
 
+# Linting
+
+- Copy-Paste `style_test.py` and `default.pylintrc` to the exercise
+- Copy-Paste the following *default feedback message* into text box:
+    - The formatting of your code differs from the recommendation. Please check the details below.
+- Set Score for linting file to 0
+- **Done**
+
+
 # Naming schemes for exercises in CodeOcean
 
 ## Rules for file names:
@@ -55,11 +64,3 @@ where *X* and *Y* are placeholders for *week* and *unit* and ZZ should be replac
 | BO       | Bonus Exercise    |
 | WA       | Weekly Assignment |
 | FE       | Final Exam        |
-
-# Linting
-
-- Copy-Paste `style_test.py` and `default.pylintrc` to the exercise
-- Copy-Paste the following *default feedback message* into text box:
-    - The formatting of your code differs from the recommendation. Please check the details below.
-- Set Score for linting file to 0
-- **Done**
