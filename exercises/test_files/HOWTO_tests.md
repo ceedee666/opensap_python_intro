@@ -19,6 +19,7 @@
 - import functions only where needed/tested
 - adjust the error return message when using `assert...`
 
+
 ## Examples
 
 See `sample_test.py` and `sample_exercise.py` for examples how to:
@@ -27,17 +28,19 @@ See `sample_test.py` and `sample_exercise.py` for examples how to:
 - test the standard output of a user program
 
 
-# File names
+# File names for exercises in CodeOcean
 
-Suggestions for file names:
+Rules for file names:
 
-| filename           | Role Name (CodeOcean)    | Description                                    |
-| ------------------ | ------------------------ | ---------------------------------------------- |
-| `exercise.py`      | Main file (can be empty) | Potential draft for learners can be added here |
-| `reference.py`     | Reference Implementation | Sample solution (**must be hidden!**)          |
-| `exercise_test.py` | Test for Assessment      | Unit-Tests                                     |
-| `style_test.py`    | Linter for Assessment    | Python file for linting                        |
-| `default.pylintrc` | Regular File             | Configuration file for PyLint                  |
+| Filename              | Role Name (CodeOcean)    | Description                                    |
+| --------------------- | ------------------------ | ---------------------------------------------- |
+| `exercise.py`         | Main file (can be empty) | Potential draft for learners can be added here |
+| `reference.py`        | Reference Implementation | Sample solution (**must be hidden!**)          |
+| `functional_tests.py` | Test for Assessment      | Unit-Tests (see above for more info)           |
+| `structural_tests.py` | Test for Assessment      | Unit-Tests (see above for more info)           |
+| `style_test.py`       | Linter for Assessment    | Python file for linting                        |
+| `default.pylintrc`    | Regular File             | Configuration file for PyLint                  |
+
 
 # Linting
 
