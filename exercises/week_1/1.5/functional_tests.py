@@ -75,7 +75,7 @@ class Testing(TestCase):
         self.assertEqual(
             self.std_out.getvalue().strip(),
             expected_out,
-            "For the input values 100, 99 and 98 the ouput of your program was not correct.",
+            "For the input values 100, 99 and 98 the output of your program was not correct.",
         )
 
         mocked_input.side_effect = ["1", "99", "99"]
@@ -84,7 +84,7 @@ class Testing(TestCase):
         self.assertEqual(
             self.std_out.getvalue().strip(),
             expected_out,
-            "For the input values 1, 99 and 99 the ouput of your program was not correct.",
+            "For the input values 1, 99 and 99 the output of your program was not correct.",
         )
 
         mocked_input.side_effect = ["42", "42", "42"]
@@ -93,43 +93,8 @@ class Testing(TestCase):
         self.assertEqual(
             self.std_out.getvalue().strip(),
             expected_out,
-            "For the input values 42, 42 and 42 the ouput of your program was not correct.",
+            "For the input values 42, 42 and 42 the output of your program was not correct.",
         )
-
-    def test_source_code(self):
-        with open("exercise.py", "r") as source:
-            tree = ast.parse(source.read())
-
-            analyzer = Analyzer()
-            analyzer.visit(tree)
-
-            self.assertEqual(
-                analyzer.stats["input"],
-                3,
-                f'You should use the input function three times but you only used it {analyzer.stats["input"]} times.',
-            )
-            self.assertEqual(
-                analyzer.stats["int"],
-                3,
-                f'You should use the int function three times but you only used it {analyzer.stats["input"]} times. The int function is required to convert the input into an integer number.',
-            )
-            self.assertEqual(
-                analyzer.stats["print"],
-                1,
-                "You should use the print function one time.",
-            )
-
-            number_vars = len(analyzer.stats["vars"])
-            self.assertGreaterEqual(
-                number_vars,
-                3,
-                f"You should use at least three variables but you only used {number_vars} variables.",
-            )
-            self.assertLessEqual(
-                number_vars,
-                4,
-                f"You should use not more than four variables but you used {number_vars} variables.",
-            )
 
 
 if __name__ == "__main__":
