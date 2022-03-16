@@ -8,11 +8,14 @@
 
 - Use `template_test.py` and `template_exercise.py` to create your own exercises and tests
 - Adjust tests where commented (after `runcaptured()`)
-- Split tests into 2 files:
+- Split tests into 2 files and add *default feedback messages* in CodeOcean:
     - Functional tests - Is the code producing the required output?
+      - Your code does not produce the expected output. Please check the details below.
     - Structural tests - Are all demanded structures used (`if`, `for`, *function definition*...)?
+      - You did not use the expected statements or structures. Please check the details below.
 - Tests can be split into multiple files for larger exercises/tests to provide more and fine-grained feedback in
   CodeOcean. Likely only necessary for complex tasks
+
 
 ## Notes
 
