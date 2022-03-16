@@ -16,8 +16,8 @@
 
 ## Notes
 
-- import functions only where needed/tested
-- adjust the error return message when using `assert...`
+- Import functions only where needed/tested
+- Adjust the error return message when using `assert...`
 
 
 ## Examples
@@ -28,9 +28,9 @@ See `sample_test.py` and `sample_exercise.py` for examples how to:
 - test the standard output of a user program
 
 
-# File names for exercises in CodeOcean
+# Naming schemes for exercises in CodeOcean
 
-Rules for file names:
+## Rules for file names:
 
 | Filename              | Role Name (CodeOcean)    | Description                                    |
 | --------------------- | ------------------------ | ---------------------------------------------- |
@@ -41,6 +41,20 @@ Rules for file names:
 | `style_test.py`       | Linter for Assessment    | Python file for linting                        |
 | `default.pylintrc`    | Regular File             | Configuration file for PyLint                  |
 
+
+## Exercise titles
+
+Use the following scheme when naming exercises:
+openSAP_python1_Week_X_Unit_Y_ZZ
+
+where *X* and *Y* are placeholders for *week* and *unit* and ZZ should be replaced as follows:
+
+| Shortcut | Meaning           |
+| -------- | ----------------- |
+| ST       | Self-Test         |
+| BO       | Bonus Exercise    |
+| WA       | Weekly Assignment |
+| FE       | Final Exam        |
 
 # Linting
 
