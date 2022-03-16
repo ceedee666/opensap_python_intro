@@ -185,31 +185,6 @@ class Testing(TestCase):
             f"The output of your program is not correct. The values 100, 100 and 100 are not valid. The output of your program was: {output}",
         )
 
-    def test_source_code(self):
-        with open("exercise.py", "r") as source:
-            tree = ast.parse(source.read())
-
-            analyzer = Analyzer()
-            analyzer.visit(tree)
-
-            self.assertGreaterEqual(
-                analyzer.stats["input"],
-                3,
-                "You need to use three calls to the input function to solve this exercise.",
-            )
-
-            self.assertGreaterEqual(
-                analyzer.stats["int"],
-                3,
-                "You need to use at least three calls to the int function to convert to user input to type integer.",
-            )
-
-            self.assertGreaterEqual(
-                len(analyzer.stats["vars"]),
-                3,
-                "You need to define at least three variables to store the values of the angels.",
-            )
-
 
 if __name__ == "__main__":
     unittest.main()

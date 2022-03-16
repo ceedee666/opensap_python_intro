@@ -73,31 +73,6 @@ class Testing(TestCase):
         expected_out = "Christian wants to travel from Aachen to Berlin by Car"
         self.assertEquals(self.std_out.getvalue().strip(), expected_out)
 
-    def test_source_code(self):
-        with open("exercise.py", "r") as source:
-            tree = ast.parse(source.read())
-
-            analyzer = Analyzer()
-            analyzer.visit(tree)
-
-            self.assertEquals(
-                analyzer.stats["input"],
-                4,
-                f'You should use the input function four times but you only used it {analyzer.stats["input"]} times.',
-            )
-            self.assertEquals(
-                analyzer.stats["print"],
-                1,
-                "You should use the print function one time.",
-            )
-
-            number_vars = len(analyzer.stats["vars"])
-            self.assertEquals(
-                number_vars,
-                4,
-                f"You should use four variables but you only used {number_vars} variables.",
-            )
-
 
 if __name__ == "__main__":
     unittest.main()
