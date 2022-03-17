@@ -84,19 +84,6 @@ class Analyzer(ast.NodeVisitor):
 
 
 class Testing(TestCase):
-    def test_output(self):
-        self.code, self.std_out, self.error_out, _ = runcaptured()
-
-        output = self.std_out.getvalue().strip()
-        if (
-            (not "TSLA" in output)
-            or (not "ZM" in output)
-            or ("SAP" in output)
-            or ("APPL" in output)
-            or ("ORCL" in output)
-        ):
-            self.fail("The output should only contain the stock symbols TSLA and ZM")
-
     def test_source_code(self):
         with open("exercise.py", "r") as source:
             tree = ast.parse(source.read())
