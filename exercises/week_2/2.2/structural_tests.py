@@ -67,40 +67,6 @@ class Analyzer(ast.NodeVisitor):
 
 
 class Testing(TestCase):
-    @mock.patch("builtins.input", create=True)
-    def test_output(self, mocked_input):
-        mocked_input.side_effect = ["1", "1"]
-
-        self.code, self.std_out, self.error_out, _ = runcaptured()
-        expected_out = "The Phantom Menace"
-
-        self.assertIn(
-            expected_out,
-            self.std_out.getvalue().strip(),
-            "The output of your program is not correct. The expected output for the input 1 and 1 is: The Phantom Menace",
-        )
-
-        mocked_input.side_effect = ["3", "3"]
-
-        self.code, self.std_out, self.error_out, _ = runcaptured()
-        expected_out = "The Rise of Skywalker"
-
-        self.assertIn(
-            expected_out,
-            self.std_out.getvalue().strip(),
-            "The output of your program is not correct. The expected output for the input 3 and 3 is: The Rise of Skywalker",
-        )
-        mocked_input.side_effect = ["2", "2"]
-
-        self.code, self.std_out, self.error_out, _ = runcaptured()
-        expected_out = "The Empire Strikes Back"
-
-        self.assertIn(
-            expected_out,
-            self.std_out.getvalue().strip(),
-            "The output of your program is not correct. The expected output for the input 2 and 2 is: The Empire Strikes Back",
-        )
-
     def test_source_code(self):
         with open("exercise.py", "r") as source:
             tree = ast.parse(source.read())
