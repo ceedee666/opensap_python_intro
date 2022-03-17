@@ -5,16 +5,20 @@
 - A triangle is acute if all three angels are less then 90°.
 
 Write a program that asks the user for the value of three angels in degrees. First check if the entered values are valid.
-The values are only valid if their sum is 180°. If the entered values are valid classify the triangle as right, acute or obtuse.
+The values are only valid if they are >0 and if their sum is 180°.
+If the entered values are valid classify the triangle as right, acute or obtuse.
 
-Below is an example execution of the program:
-
+Below are two example executions with invalid values of the program:
 
     Please enter the first angle: 60
     Please enter the second angle: 60
     Please enter the third angle: 100
-
     The entered values are not valid.
+
+    Please enter the first angle: 200
+    Please enter the second angle: -10
+    Please enter the third angle: -10
+    Angles smaller than 0 are not valid.
 
 
 Here is another example execution of the program:
@@ -22,5 +26,4 @@ Here is another example execution of the program:
     Please enter the first angle: 60
     Please enter the second angle: 30
     Please enter the third angle: 90
-
     The triangle is a right triangle.
