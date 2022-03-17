@@ -185,6 +185,18 @@ class Testing(TestCase):
             f"The output of your program is not correct. The values 100, 100 and 100 are not valid. The output of your program was: {output}",
         )
 
+        mocked_input.side_effect = [200, -10, -10]
+        self.code, self.std_out, self.error_out, _ = runcaptured()
+
+        output = self.std_out.getvalue().strip()
+
+        expected_out = "not valid"
+        self.assertIn(
+            expected_out,
+            output.lower(),
+            f"The output of your program is not correct. The values 200, -10, -10 are not valid. The output of your program was: {output}",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
