@@ -1,10 +1,12 @@
-# How to use these tests
+# How to use create exercises
+
+## Tests
 
 - `runcaptured()` function will execute the specified input file and return source code, output, errors and variables
 - `Analyzer()` class is used to parse AST
 - `Testing()` class contains some pre-defined test actions
 
-## Create your own tests
+### Create your own tests
 
 - Use `template_test.py` and `template_exercise.py` to create your own exercises and tests
 - Adjust tests where commented (after `runcaptured()`)
@@ -17,13 +19,13 @@
   CodeOcean. Likely only necessary for complex tasks
 
 
-## Notes
+### Notes
 
 - Import functions only where needed/tested
 - Adjust the error return message when using `assert...`
 
 
-## Examples
+### Examples
 
 See `sample_test.py` and `sample_exercise.py` for examples how to:
 - count the number of ifs in a program using AST
@@ -31,7 +33,26 @@ See `sample_test.py` and `sample_exercise.py` for examples how to:
 - test the standard output of a user program
 
 
-# Linting
+## Markdown
+
+Markdown is supported in CodeOcean, though not all features will work (currently?). Code, for example, needs to be
+indented, ticks **`** will not work, e. g.:
+
+**Use**
+
+    code (with one blank line before and after)
+
+**not**
+```
+code
+```
+
+(Have a look at the raw file to see the formatting used)
+Supported syntax is listed
+[at the kramdown site](https://kramdown.gettalong.org/quickref.html).
+
+
+## Linting
 
 - Copy-Paste `style_test.py` and `default.pylintrc` to the exercise
 - Copy-Paste the following *default feedback message* into text box:
