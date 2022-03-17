@@ -1,5 +1,3 @@
-# Exercise
-
 Below you find a code snippet to create a Python list containing the titles of all [Star Wars](https://en.wikipedia.org/wiki/Star_Wars)
 movies. The list contains:
 
@@ -10,13 +8,15 @@ movies. The list contains:
 - a list containing the titles of the sequel trilogy:
   _The Force Awakens_, _The Last Jedi_, _The Rise of Skywalker_
 
-```python
-star_wars_movies = [
-    ["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"],
-    ["A New Hope", "The Empire Strikes Back", "Return of the Jedi"],
-    ["The Force Awakens", "The Last Jedi", "The Rise of Skywalker"],
-]
-```
+*Code snippet*:
+
+    star_wars_movies = [
+        ["The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"],
+        ["A New Hope", "The Empire Strikes Back", "Return of the Jedi"],
+        ["The Force Awakens", "The Last Jedi", "The Rise of Skywalker"],
+    ]
+
+
 
 Write a program that ask the user for a number of the trilogy (1,2 or 3) and the number of the film in
 this trilogy (1, 2 or 3). Print the title of the film corresponding to the user selection.

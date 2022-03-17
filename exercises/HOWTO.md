@@ -59,7 +59,8 @@ See `sample_test.py` and `sample_exercise.py` for examples how to:
 Use the following scheme when naming exercises:
 openSAP_python1_Week_X_Unit_Y_ZZ
 
-where *X* and *Y* are placeholders for *week* and *unit* and ZZ should be replaced as follows:
+where *X* and *Y* are placeholders for *week* and *unit* and ZZ should be replaced as follows (omit *unit_Y* when using
+anything apart from **ST**):
 
 | Shortcut | Meaning           |
 | -------- | ----------------- |

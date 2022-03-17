@@ -1,5 +1,3 @@
-# Exercise
-
 Write a program that lets the user input a two-dimensional
 [matrix](<https://en.wikipedia.org/wiki/Matrix_(mathematics)>)
 (Hint: you could use a list of lists to store the matrix).
@@ -22,16 +20,15 @@ print the sums of the values in each row.
 Below is an example execution of the program:
 
 
-```zsh
-Please enter the number of rows in the matrix: 2
-Please enter the number of clumns in the matrix: 3
-Enter the matrix values:
-Value: 1
-Value: 2
-Value: 3
-Value: 4
-Value: 5
-Value: 6
-Sum of row: 5
-Sum of row: 15
-```
+
+    Please enter the number of rows in the matrix: 2
+    Please enter the number of columns in the matrix: 3
+    Enter the matrix values:
+    Value: 1
+    Value: 2
+    Value: 3
+    Value: 4
+    Value: 5
+    Value: 6
+    Sum of row: 5
+    Sum of row: 15
