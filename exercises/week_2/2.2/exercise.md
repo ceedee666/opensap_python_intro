@@ -1,5 +1,3 @@
-# Exercise
-
 Below you find a code snippet to create a Python list containing the titles of all [Star Wars](https://en.wikipedia.org/wiki/Star_Wars)
 movies. The list contains:
 
