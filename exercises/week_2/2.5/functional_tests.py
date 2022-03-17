@@ -118,41 +118,6 @@ class Testing(TestCase):
                 'The output of your program is not correct. Each line in the output should start with "Sum of row".',
             )
 
-    def test_source_code(self):
-        with open("exercise.py", "r") as source:
-            tree = ast.parse(source.read())
-
-            analyzer = Analyzer()
-            analyzer.visit(tree)
-
-            self.assertGreaterEqual(
-                analyzer.stats["input"],
-                3,
-                "You need to use three calls to the input function to solve this exercise.",
-            )
-
-            self.assertGreaterEqual(
-                analyzer.stats["int"],
-                3,
-                "You need to use three calls to the int function to convert to user input to type integer.",
-            )
-
-            self.assertGreaterEqual(
-                analyzer.stats["append"],
-                1,
-                "You should use the append method to add the user input to the matrix.",
-            )
-
-    def test_nested_for(self):
-        with open("exercise.py", "r") as source:
-            tree = ast.parse(source.read())
-
-            analyzer = Analyzer()
-            analyzer.visit(tree)
-
-            if not analyzer.nested_for:
-                self.fail("You should use nested for loops to solve this exercise.")
-
 
 if __name__ == "__main__":
     unittest.main()
