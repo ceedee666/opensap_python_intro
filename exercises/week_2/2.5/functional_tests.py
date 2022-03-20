@@ -1,4 +1,3 @@
-import ast
 import contextlib
 import io
 import os
@@ -46,39 +45,6 @@ def runcaptured(tracing=None, variables=None):
                 variables = {}
             exec(c, variables)
         return source, out[0], out[1], variables
-
-
-class Analyzer(ast.NodeVisitor):
-    def __init__(self):
-        self.stats = {"input": 0, "vars": set(), "for": 0, "int": 0, "append": 0}
-        self.nested_for = False
-
-    def visit_Call(self, node):
-        if isinstance(node.func, ast.Name):
-            if node.func.id == "input":
-                self.stats["input"] += 1
-
-            if node.func.id == "int":
-                self.stats["int"] += 1
-
-        if isinstance(node.func, ast.Attribute):
-            if node.func.attr == "append":
-                self.stats["append"] += 1
-
-        self.generic_visit(node)
-
-    def visit_For(self, node):
-        self.stats["for"] += 1
-
-        for element in node.body:
-            if isinstance(element, ast.For):
-                self.nested_for = True
-
-        self.generic_visit(node)
-
-    def visit_Assign(self, node):
-        self.stats["vars"].add(node.targets[0].id)
-        self.generic_visit(node)
 
 
 class Testing(TestCase):
