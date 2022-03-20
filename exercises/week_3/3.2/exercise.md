@@ -45,3 +45,5 @@ words = sentence.split()
 print(words)
 is
 ["This", "is", "a", "test"]
+
+You should also be careful about spaces in the resulting sentence.
