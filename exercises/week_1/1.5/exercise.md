@@ -1,4 +1,4 @@
-Write a Python program that ask the user to enter three integer numbers. The program
+Write a Python program that asks the user to enter three integer numbers. The program
 should output the largest of the three numbers.
 
 Below is an example execution of the program:
