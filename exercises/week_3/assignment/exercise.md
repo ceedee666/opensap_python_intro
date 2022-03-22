@@ -31,7 +31,7 @@ the plain text character is used in the encryption as well (e.g. the ! in the ex
 
 ## Hint
 
-1. There are several approaches to solve this exercise. The simples solution would be to create a dictionary with containing the necessary substitutions.
+1. There are several approaches to solve this exercise. The simplest solution would be to create a dictionary with containing the necessary substitutions.
 1. To avoid handling upper and lower case letters it is best to first convert the user input to lower case.
    After that you only need to take into account lower case letters. A string can be converted into lower case using the .lover() method.
    The result of the following example is: test.
