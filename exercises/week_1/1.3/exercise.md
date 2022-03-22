@@ -1,9 +1,9 @@
-Write a Python program that ask the user to enter
+Write a Python program that asks the user to enter:
 
-- a name
-- a start city
-- a destination city and
-- a means of transportation
+- A name
+- A start city
+- A destination city and
+- A means of transportation
 
 The program should then print that the _name_ wants to travel from _start_ to _destination_
 by _means of transportation_.
