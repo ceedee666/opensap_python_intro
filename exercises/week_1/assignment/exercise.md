@@ -1,14 +1,14 @@
 [Triangles](https://en.wikipedia.org/wiki/Triangle#Types_of_triangle) can be classified based on their angels.
 
 - A right triangle has one angle of 90°
-- A obtuse triangle has one angle of more then 90°
-- A triangle is acute if all three angels are less then 90°.
+- A obtuse triangle has one angle of more than 90°
+- A triangle is acute if all three angels are less than 90°
 
-Write a program that asks the user for the value of three angels in degrees. First check if the entered values are valid.
-The values are only valid if they are >0 and if their sum is 180°.
-If the entered values are valid classify the triangle as right, acute or obtuse.
+Write a program that asks the user for the values of three angles in degrees. First check if the entered values are
+valid. The values are only valid if they are >0 and if their sum is 180°.
+If the entered values are valid, classify the triangle as right, acute or obtuse.
 
-Below are two example executions with invalid values of the program:
+Below are two example executions of the program with invalid values:
 
     Please enter the first angle: 60
     Please enter the second angle: 60

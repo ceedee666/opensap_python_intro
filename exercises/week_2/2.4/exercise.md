@@ -6,6 +6,6 @@ as well as the absolute price change for the previous day:
 
 
 As you plan to take some of the profits, write a program that creates a list of all the stock
-symbols with a change more then +5 percent. The list should be named `sell_list`.
+symbols with a change of more then +5 percent. The list should be named `sell_list`.
 The list should only contain the stock symbol, not the price or the absolute change.
 Print the resulting list.
