@@ -13,4 +13,5 @@ Below is an example execution of the program:
     Please enter a start: Aachen
     Please enter a destination: Berlin
     Please enter a means of transportation: Train
+
     Christian wants to travel from Aachen to Berlin by Train
