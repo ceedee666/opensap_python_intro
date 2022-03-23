@@ -15,8 +15,6 @@ Finally, the program should calculate and print the sums of the values in each r
 
 Below is an example execution of the program:
 
-
-
     Please enter the number of rows in the matrix: 2
     Please enter the number of columns in the matrix: 3
     Enter the matrix values:

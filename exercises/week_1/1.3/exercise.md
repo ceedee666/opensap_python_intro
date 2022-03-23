@@ -7,6 +7,7 @@ Write a Python program that asks the user to enter:
 
 The program should then print that the _name_ wants to travel from _start_ to _destination_
 by _means of transportation_.
+
 Below is an example execution of the program:
 
     Please enter a name: Christian
