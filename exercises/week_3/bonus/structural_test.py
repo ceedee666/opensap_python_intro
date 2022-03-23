@@ -10,7 +10,7 @@ dirname = os.path.dirname(__file__)
 
 class Analyzer(ast.NodeVisitor):
     def __init__(self):
-        self.stats = {"input": 0, "lower": 0, "for": 0}
+        self.stats = {"input": 0, "lower": 0, "for": 0, "mod": 0, "isdecimal": 0}
         self.nested_for = False
 
     def visit_Call(self, node):
@@ -22,6 +22,9 @@ class Analyzer(ast.NodeVisitor):
             if node.func.attr == "lower":
                 self.stats["lower"] += 1
 
+        if isinstance(node.func, ast.Attribute):
+            if node.func.attr == "isdecimal":
+                self.stats["isdecimal"] += 1
         self.generic_visit(node)
 
     def visit_For(self, node):
@@ -33,8 +36,34 @@ class Analyzer(ast.NodeVisitor):
 
         self.generic_visit(node)
 
+    def visit_BinOp(self, node):
+        self.stats["mod"] += 1
+        if isinstance(node.op, ast.Mod):
+            self.stats["mod"] += 1
+
+        self.generic_visit(node)
+
 
 class Testing(TestCase):
+    def test_functions(self):
+        with open("exercise.py", "r") as source:
+            tree = ast.parse(source.read())
+
+            analyzer = Analyzer()
+            analyzer.visit(tree)
+
+            self.assertGreaterEqual(
+                analyzer.stats["lower"],
+                1,
+                "You should use the lower method to convert the user input to lower case.",
+            )
+
+            self.assertGreaterEqual(
+                analyzer.stats["isdecimal"],
+                1,
+                "You should use the isdecimal method to check if the entered shift value is a integer number.",
+            )
+
     def test_source_code(self):
         with open("exercise.py", "r") as source:
             tree = ast.parse(source.read())
@@ -44,8 +73,8 @@ class Testing(TestCase):
 
             self.assertGreaterEqual(
                 analyzer.stats["input"],
-                1,
-                "You need to use one call to the input function to get the plain text from the user.",
+                2,
+                "You need to use two calls to the input function to get the plain text from the user.",
             )
 
             self.assertGreaterEqual(
@@ -54,7 +83,7 @@ class Testing(TestCase):
                 "Youd should use a for loop to iterates through the letters of the user input.",
             )
 
-    def test_functions(self):
+    def test_mod(self):
         with open("exercise.py", "r") as source:
             tree = ast.parse(source.read())
 
@@ -62,21 +91,9 @@ class Testing(TestCase):
             analyzer.visit(tree)
 
             self.assertGreaterEqual(
-                analyzer.stats["input"],
+                analyzer.stats["mod"],
                 1,
-                "You need to use one call to the input function to get the plain text from the user.",
-            )
-
-            self.assertGreaterEqual(
-                analyzer.stats["lower"],
-                1,
-                "You should use the lower method to convert the user input to lower case.",
-            )
-
-            self.assertGreaterEqual(
-                analyzer.stats["for"],
-                1,
-                "Youd should use a for loop to iterates through the letters of the user input.",
+                "You should use the modulo operator (%) to solve this exercise",
             )
 
 
