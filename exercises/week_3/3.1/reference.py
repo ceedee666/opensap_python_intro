@@ -1,15 +1,6 @@
-# Create empty list
-list_of_students = []
+given_name = input("Please enter the given name of the student: ")
+surname = input("Please enter the surname of the student: ")
+field_of_study = input("Please enter the field of study of the student: ")
 
-# Loop for creating tuples
-for i in range(5):
-    name = input("Bitte Namen eingeben: ")
-    vorname = input("Bitte Vornamen eingeben: ")
-    fach = input("Bitte Studienfach eingeben: ")
-    matrikelnummer = int(input("Bitte Matrikelnummer (Integer) eingeben: "))
-# Create a tuple out of single elements
-    student = (name, vorname, fach, matrikelnummer)
-# Append the tuple inside the list
-    list_of_students.append(student)
-
-print(list_of_students)
+student = (given_name, surname, field_of_study)
+print(student)
