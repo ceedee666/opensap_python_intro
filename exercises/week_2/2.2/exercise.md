@@ -1,11 +1,11 @@
 Below you find a code snippet to create a Python list containing the titles of all [Star Wars](https://en.wikipedia.org/wiki/Star_Wars)
 movies. The list contains:
 
-- a list containing the titles of the prequel trilogy:
+- A list containing the titles of the prequel trilogy:
   _The Phantom Menace_, _Attack of the Clones_, _Revenge of the Sith_
-- a list containing the titles of the original trilogy:
+- A list containing the titles of the original trilogy:
   _A New Hope_, _The Empire Strikes Back_, _Return of the Jedi_,
-- a list containing the titles of the sequel trilogy:
+- A list containing the titles of the sequel trilogy:
   _The Force Awakens_, _The Last Jedi_, _The Rise of Skywalker_
 
 *Code snippet*:
@@ -17,6 +17,5 @@ movies. The list contains:
     ]
 
 
-
-Write a program that ask the user for a number of the trilogy (1,2 or 3) and the number of the film in
+Write a program that ask the user for a number of the trilogy (1, 2 or 3) and the number of the film in
 this trilogy (1, 2 or 3). Print the title of the film corresponding to the user selection.
