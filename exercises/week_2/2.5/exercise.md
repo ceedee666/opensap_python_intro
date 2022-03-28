@@ -1,6 +1,6 @@
 Write a program that lets the user input a two-dimensional
 [matrix](<https://en.wikipedia.org/wiki/Matrix_(mathematics)>) (Hint: you could use a list of lists to store the
-matrix). The program should ask the user first how many rows and columns the matrix should contain. Next, the program
+matrix). The program should first ask the user how many rows and columns the matrix should contain. Next, the program
 should ask the user for the elements of the matrix. Your program should read the values from the user row by row. If,
 for example, the matrix has the dimension 2 by 3, the values should be read as follows:
 
