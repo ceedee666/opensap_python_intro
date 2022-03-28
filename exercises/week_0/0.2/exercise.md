@@ -10,7 +10,7 @@ If not done yet, open CodeOcean. Type the following line character by character 
 Execute the code by clicking the **Run** button. The window will change and the Sidebar will open. In there the
 statement from above should be printed:
 
-	CodeOcean works fine.
+	CodeOcean works fine
 
 
 ### Change the code
