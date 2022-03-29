@@ -1,6 +1,12 @@
 # Introduction exercise for CodeOcean
+This exercise does not have graded points, it is just for you to become familiar and play around with the CodeOcean, 
+our programming tool.
 
-If not done yet, open CodeOcean. Type the following line character by character into the editor.
+You can't break anything, so go ahead! 
+
+## Insert code
+
+Type the following line character by character into the editor.
 
 	print("CodeOcean works fine")
 
@@ -28,4 +34,9 @@ passed.
 
 ## Pass all tests
 
-To pass the first test, add the word 'really' at the requested position into the code.
+To pass the first test, add the word 'really' at the requested position into the code. Then re-run and re-score
+the code. Now all tests should be passed.
+
+## Request comment
+If you want to, just give it a try and request a comment. Simply add a statement. Then click on your name in the 
+upper right corner and check your request.
