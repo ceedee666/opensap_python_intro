@@ -4,4 +4,4 @@ There is a file `secret.txt`, which contains one character per line. There is a 
 # Tests
 - public.txt available and contains the expected outcome
 - check if there are two open with modus "r" and one open with modus "w"
-- check 
+- check

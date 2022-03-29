@@ -17,5 +17,5 @@ movies. The list contains:
     ]
 
 
-Write a program that ask the user for a number of the trilogy (1, 2 or 3) and the number of the film in
+Write a program that asks the user for a number of the trilogy (1, 2 or 3) and the number of the film in
 this trilogy (1, 2 or 3). Print the title of the film corresponding to the user selection.
