@@ -1,9 +1,11 @@
-def filesummer():
-    sum = 0
-    with open("/Users/user/Documents/Codes/Arbeit/codeocean/4.3/numbers2.txt", "r") as file:
-        for i in file:
-            i = i.strip()
-            sum = sum + int(i)
-        print(sum)
+list_numbers = []
+with open("numbers.txt", "r") as file:
+    for line in file:
+        i = line.strip()
+        i = int(line)
+        list_numbers.append(i)
 
-filesummer()
+list_numbers.sort()
+
+for x in range(1, 4):
+    print(list_numbers[-x])
