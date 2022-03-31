@@ -45,29 +45,30 @@ def runcaptured(filename, tracing=None, variables=None):
 
 
 class Analyzer(ast.NodeVisitor):
-    """Sample Analyzer class to parse & process ast"""
+    """Analyzer class to parse & process ast"""
 
     def __init__(self):
         self.stats_print = []  # create empty stats list
 
     def visit_Call(self, node):
-        if node.func.id == "print":
-            self.stats_print.append(node.func.lineno)
+        for sub_node in ast.walk(node):  # iterate through all sub-nodes in Call-node
+            if isinstance(sub_node, ast.Name) and sub_node.id == "print":
+                self.stats_print.append(node.func.lineno)
         self.generic_visit(node)
 
 
 class Testing(unittest.TestCase):
-    """Sample Testing class to check code structure"""
+    """Testing class to check code structure"""
 
     @classmethod
     def setUpClass(self):
         """Setup for just-once actions"""
 
         super().setUpClass()
-        self.code, self.std_out, self.error_out, _ = runcaptured("exercise.py")
+        self.code, self.std_out, self.error_out, _ = runcaptured("reference.py")
 
-    def test_ast_parse(self):
-        """Sample Analyzer class to parse & process AST"""
+    def test_source_code(self):
+        """Analyzer class to parse & process AST"""
 
         tree = ast.parse(self.code)  # build the AST
         analyzer = Analyzer()  # create Analyzer instance
@@ -78,7 +79,7 @@ class Testing(unittest.TestCase):
         self.assertEqual(
             1,
             used_prints,
-            f"You did not use the correct number of print statements. "
+            "You did not use the correct number of print statements. "
             f"You should use just one print statement, but you used {used_prints}.",
         )
 
