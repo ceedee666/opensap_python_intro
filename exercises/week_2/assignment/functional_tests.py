@@ -37,7 +37,7 @@ def trace(t):
 
 
 def runcaptured(tracing=None, variables=None):
-    filename = "reference.py"
+    filename = "exercise.py"
     with open(filename) as f:
         source = f.read()
         c = compile(source, filename, "exec")

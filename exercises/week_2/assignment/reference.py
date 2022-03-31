@@ -3,7 +3,7 @@ number_of_month = int(input("Please enter the number of month to plan: "))
 
 sales_plan = []
 for i in range(number_of_month):
-    sales = int(input(f"Please enter the planned sales quantity for month {i+1}: "))
+    sales = int(input("Please enter the planned sales quantity: "))
     sales_plan.append(sales)
 
 production_plan = []
@@ -21,4 +21,4 @@ for i in range(number_of_month):
 
 print("The resulting production quantities are:")
 for i in range(number_of_month):
-    print(f"production quantity month {i+1}: {production_plan[i]}")
+    print("production quantity month", i, "-", production_plan[i])
