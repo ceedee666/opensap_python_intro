@@ -15,18 +15,18 @@ Below is an example execution of the program:
 
     Please enter an initial stock level: 500
     Please enter the number of month to plan: 5
-    Please enter the planned sales quantity for month 1: 300
-    Please enter the planned sales quantity for month 2: 250
-    Please enter the planned sales quantity for month 3: 200
-    Please enter the planned sales quantity for month 4: 400
-    Please enter the planned sales quantity for month 5: 100
+    Please enter the planned sales quantity: 300
+    Please enter the planned sales quantity: 250
+    Please enter the planned sales quantity: 200
+    Please enter the planned sales quantity: 400
+    Please enter the planned sales quantity: 100
 
     The resulting production quantities are:
-    Production quantity month 1: 0
-    Production quantity month 2: 50
-    Production quantity month 3: 200
-    Production quantity month 4: 400
-    Production quantity month 5: 100
+    Production quantity month 1 - 0
+    Production quantity month 2 - 50
+    Production quantity month 3 - 200
+    Production quantity month 4 - 400
+    Production quantity month 5 - 100
 
 Why are those production quantities calculated? The initial stock level is 500. In the first month 300 pieces are sold.
 Therefore, nothing needs to be produced and the resulting stock is 200 (= 500 - 300).

@@ -20,4 +20,5 @@ Below is the output of the program for the first 15 numbers:
     14
     FizzBuzz
 
+# Optional Variant (quite difficult ☠️)
 Can you use a list comprehension to solve this exercise?

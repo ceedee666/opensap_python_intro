@@ -9,7 +9,7 @@ if shift_str.isdecimal():
         plain_text = input("Please enter a sentence: ")
         plain_text = plain_text.lower()
 
-        enrypted_text = ""
+        encrypted_text = ""
         for char in plain_text:
             if char in abc:
                 index = abc.find(char)
@@ -17,9 +17,9 @@ if shift_str.isdecimal():
             else:
                 encrypted_char = char
 
-            enrypted_text += encrypted_char
+            encrypted_text += encrypted_char
 
-        print("The encrypted sentence is:", enrypted_text)
+        print("The encrypted sentence is:", encrypted_text)
 
     else:
         print("You need to enter a number between 0 and 25!")

@@ -6,6 +6,7 @@ with open("numbers.txt", "r") as file:
         list_numbers.append(i)
 
 list_numbers.sort()
+list_numbers.reverse()
 
-for x in range(1, 4):
-    print(list_numbers[-x])
+for x in list_numbers[:3]:
+    print(x)

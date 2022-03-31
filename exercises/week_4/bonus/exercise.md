@@ -1,5 +1,5 @@
-# Paper, Scissors, Rock
-You probably know the game ["Paper, Scissors, Rock"](https://en.wikipedia.org/wiki/Rock_paper_scissors). A game for two players. Each player has three options, namely paper, scissors, rock which are formed by the player's hand. The rules are quite easy: rock beats scissors, scissors beats paper, paper beats rock. If both players have chosen the same object, it's a draw.
+# Rock, Paper, Scissors
+You probably know the game ["Rock, Paper, Scissors"](https://en.wikipedia.org/wiki/Rock_paper_scissors). A game for two players. Each player has three options, namely paper, scissors, rock which are formed by the player's hand. The rules are quite easy: rock beats scissors, scissors beats paper, paper beats rock. If both players have chosen the same object, it's a draw.
 
 In the following, we play 100 consecutive games. Each player has to hand in a file consisting of one letter per line. The letters are either "R", "S" or "P". 
 
