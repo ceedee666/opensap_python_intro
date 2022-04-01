@@ -44,43 +44,24 @@ def runcaptured(filename, tracing=None, variables=None):
         return source, out[0], out[1], variables
 
 
-class Analyzer(ast.NodeVisitor):
-    """Analyzer class to parse & process ast"""
-
-    def __init__(self):
-        self.stats_print = []  # create empty stats list
-
-    def visit_Call(self, node):
-        for sub_node in ast.walk(node):  # iterate through all sub-nodes in Call-node
-            if isinstance(sub_node, ast.Name) and sub_node.id == "print":
-                self.stats_print.append(node.func.lineno)
-        self.generic_visit(node)
-
-
 class Testing(unittest.TestCase):
-    """Testing class to check code structure"""
+    """Testing class with multiple tests"""
 
     @classmethod
     def setUpClass(self):
         """Setup for just-once actions"""
 
         super().setUpClass()
-        self.code, self.std_out, self.error_out, _ = runcaptured("reference.py")
+        self.code, self.std_out, self.error_out, _ = runcaptured("exercise.py")
 
-    def test_source_code(self):
-        """Analyzer class to parse & process AST"""
+    def test_output(self):
+        """Test std_out from user program"""
 
-        tree = ast.parse(self.code)  # build the AST
-        analyzer = Analyzer()  # create Analyzer instance
-        analyzer.visit(tree)  # visit the nodes of the AST
-
-        used_prints = len(analyzer.stats_print)
-
+        expected_out = "9853\n9760\n9745\n"
         self.assertEqual(
-            1,
-            used_prints,
-            "You did not use the correct number of print statements. "
-            f"You should use just one print statement, but you used {used_prints}.",
+            expected_out,
+            self.std_out,
+            "Your program did not print the expected result.",
         )
 
 
