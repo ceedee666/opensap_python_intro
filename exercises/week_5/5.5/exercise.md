@@ -1,5 +1,5 @@
 # Stopping distance
-The stopping distance of a car can be calculated using the following rule of thumb:
+The stopping distance of a car can be calculated using the following [rule of thumb](https://en.wikipedia.org/wiki/Braking_distance#Rules_of_thumb):
 - the stopping distance of the car is the sum of the reaction path and the brake distance
 - the reaction path depends on the speed. It can be calculated by the following rule of thumb: The reaction path in meter is equal to the  speed in km/h times 3/10.
     - Example: Speed 50km/h --> reaction path 15m

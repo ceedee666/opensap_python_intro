@@ -1,4 +1,4 @@
-def prime(cand):
+def isprime(cand):
     p = True
     for i in range(2, cand):
         if cand % i == 0:
@@ -8,7 +8,7 @@ def prime(cand):
 def prime_list(num):
     list_primes = []
     for i in range (2, num + 1):
-        if prime(i):
+        if isprime(i):
             list_primes.append(i)
     return list_primes
 
