@@ -13,8 +13,5 @@ numbers.
 
 
 # Tests
-D Check the output (should be: 9853\n9760\n9745)
-D Check if there is an open() statement
-**- Check if there is either read() or readlines()**
-- Check if there is a .strip()
-- Check if there is a int() casting
+
+**- Check if there is either read() or readlines()**  ????
