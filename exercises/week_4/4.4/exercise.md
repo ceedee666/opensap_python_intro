@@ -8,10 +8,6 @@ First read all the numbers as explained in the last exercise and put them into a
 through the list and check if a number is even. If this is case, change the integer into a string and do not forget to
 add a line break. Write this string into the file. Finally implement the print statement.
 
-# Tests
-- Check, if a file of even numbers exists. (How to do that?)
-- Compare the content of the file with the existing file (How to do that?)
+# Tests, structural
 - Check if open(.. "r") exists
 - Check if open(.. "w") exists
-- Check if there is an if-statement
-- Check final output statement
