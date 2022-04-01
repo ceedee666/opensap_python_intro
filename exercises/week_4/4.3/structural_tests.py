@@ -47,21 +47,21 @@ class Testing(unittest.TestCase):
         self.assertEqual(
             1,
             used_opens,
-            "You did not use the corrent number of open() statements. "
+            "You did not use the correct number of open() statements. "
             f"You need to use 1 open() statement to read the input file, but you used {used_opens}.",
         )
 
         self.assertEqual(
             1,
             used_strips,
-            "You did not use the corrent number of strip() statements. "
+            "You did not use the correct number of strip() statements. "
             f"You just need to remove the line breaks from your input lines. You used {used_strips} strip() statements.",
         )
 
         self.assertEqual(
             1,
             used_ints,
-            "You did not use the corrent number of type cast statements. "
+            "You did not use the correct number of type cast statements. "
             f"You need to convert the input from your file into integer numbers. You used {used_ints} int() statements",
         )
 
