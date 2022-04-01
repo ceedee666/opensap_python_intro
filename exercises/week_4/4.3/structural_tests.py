@@ -1,49 +1,4 @@
-import contextlib, io, ast, unittest
-
-from numpy import isin
-
-
-@contextlib.contextmanager
-def capture():
-    """Helper function to get std(out&err)"""
-
-    global captured_out
-    import sys
-
-    oldout, olderr = sys.stdout, sys.stderr
-    try:
-        out = [io.StringIO(), io.StringIO()]
-        captured_out = out
-        sys.stdout, sys.stderr = out
-        yield out
-    finally:
-        sys.stdout, sys.stderr = oldout, olderr
-        out[0] = out[0].getvalue()
-        out[1] = out[1].getvalue()
-
-
-@contextlib.contextmanager
-def trace(t):
-    try:
-        if t:
-            t.start()
-        yield
-    finally:
-        if t:
-            t.stop()
-
-
-def runcaptured(filename, tracing=None, variables=None):
-    """Run a specified python file and return source code, stdout, stderr and variables"""
-
-    with open(filename) as f:
-        source = f.read()
-        c = compile(source, filename, "exec")
-        with capture() as out, trace(tracing):
-            if variables is None:
-                variables = {}
-            exec(c, variables)
-        return source, out[0], out[1], variables
+import ast, unittest
 
 
 class Analyzer(ast.NodeVisitor):
@@ -75,7 +30,8 @@ class Testing(unittest.TestCase):
         """Setup for just-once actions"""
 
         super().setUpClass()
-        self.code, self.std_out, self.error_out, _ = runcaptured("exercise.py")
+        with open("exercise.py", "r") as source:
+            self.code = source.read()
 
     def test_source_code(self):
         """Analyzer class to parse & process AST"""
