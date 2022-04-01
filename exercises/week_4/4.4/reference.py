@@ -10,3 +10,5 @@ with open("even_numbers.txt", "w") as file:
         if i % 2 == 0:
             i = str(i) + "\n"
             file.write(i)
+
+print("List of even numbers created!")
