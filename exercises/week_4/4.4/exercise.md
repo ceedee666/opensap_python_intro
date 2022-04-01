@@ -1,12 +1,13 @@
-# Filter even numbers
-The file `numbers.txt` contains numbers. (Actually, the same numbers from the last exercise.) There is exactly one number per line. Read the numbers from the file and write those numbers into a new file named `even_numbers.txt`. Again, there should be one number per line. The order of the numbers shall be unchanged. To indicate, that the program is finished, print the following output: "List of even numbers created!"
+# Filter the even numbers from the file
+The file "numbers.txt" contains some random  numbers. Again, there is one number per line. Go through this list, and write all numbers into a new file "even_numbers.txt". 
 
 # Hint
-First read all the numbers as explained in the last exercise and put them into a list. Open the new file for writing. Go through the list and check if a number is even. If this is case, change the integer into a string and do not forget to add a line break. Write this string into the file. Implement the final print statement.
+Go through the file "numbers.txt" line by line, read the input, delete the line break and cast it into an integer. Then append the number into a list. When the file is read completely, all numbers are now stored in the list. Open the new file "even_numbers.txt" and iterate through the list. If a number is even, then write it into the file.
+
 
 # Tests
-- Check, if a file of even numbers exists. (How to do that?)
-- Compare the content of the file with the existing file (How to do that?)
-- Check if open(.. "r") exists
-- Check if open(.. "w") exists
-- Check if there is an if-statement
+- Check the output (should be: 9853\n9760\n9745)
+- Check if there is an open() statement
+- Check if there is either read() or readlines()
+- Check if there is a .strip()
+- Check if there is a int() casting
