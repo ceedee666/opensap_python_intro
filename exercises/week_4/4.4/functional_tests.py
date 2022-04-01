@@ -52,9 +52,7 @@ class Testing(unittest.TestCase):
         """Setup for just-once actions"""
 
         super().setUpClass()
-        self.code, self.std_out, self.error_out, _ = runcaptured(
-            "reference.py"
-        )  # TODO: change
+        self.code, self.std_out, self.error_out, _ = runcaptured("exercise.py")
 
     def test_output(self):
         """Test std_out from user program"""
