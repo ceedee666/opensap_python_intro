@@ -78,14 +78,11 @@ Supported syntax is listed
 ## Exercise titles
 
 Use the following scheme when naming exercises:
-openSAP_python1_Week_X_Unit_Y_ZZ
+Week X, Unit Y: Exercise (Python_1)
 
-where *X* and *Y* are placeholders for *week* and *unit* and ZZ should be replaced as follows (omit *unit_Y* when using
-anything apart from **ST**):
+*or*
 
-| Shortcut | Meaning           |
-| -------- | ----------------- |
-| ST       | Self-Test         |
-| BO       | Bonus Exercise    |
-| WA       | Weekly Assignment |
-| FE       | Final Exam        |
+Week X: Bonus/Assignment (Python_1)
+
+
+where *X* and *Y* are placeholders for *week* and *unit*.
