@@ -6,7 +6,7 @@
 ## Your Task
 Write a program, that gets an integer through input and creates a list containing all prime numbers until this input. To do so, two functions have to be implemented:
 
-- The function `prime()` gets an integer as input and returns `True` if this integer is prime, and `False` if the integer is not prime. 
+- The function `isprime()` gets an integer as input and returns `True` if this integer is prime, and `False` if the integer is not prime. 
 - The function `prime_list()` gets an integer as input and checks each number from 2 to input, if it is prime by calling the above function. If a number is prime, it is appended to a list. This list is given back as the return value of `prime_list()`.
 
 The program finally outputs the list of all prime numbers.
@@ -25,7 +25,7 @@ Example 2:
 ​
 
 # Proposed Tests:
-- check if function `prime()` is available
+- check if function `isprime()` is available
 - check if function `prime_list()` is available
 - check if a list is given as output
 - check if `prime()` contains either a for or a while loop
