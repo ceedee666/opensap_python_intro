@@ -49,7 +49,7 @@ def runcaptured(tracing=None, variables=None):
 
 class Testing(TestCase):
     @mock.patch("builtins.input", create=True)
-    def test_output_not_changed(self, mocked_input):
+    def test_correct_output(self, mocked_input):
         name = "Potter"
         first_name = "Harry"
         student_id = "666555"
