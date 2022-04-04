@@ -39,7 +39,10 @@ passed.
 To pass the first test, add the word 'really' at the requested position into the code. Then re-run and re-score
 the code. Now all tests should be passed.
 
-# Request comment
+
 ---
+
+# Request comment
+
 If you want to, just give it a try and request a comment so that your fellow learners can reply. Simply add a statement.
 Then click on your name in the upper right corner and check your request.
