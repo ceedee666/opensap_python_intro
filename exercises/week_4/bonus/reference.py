@@ -39,6 +39,3 @@ with open("result.txt", "w") as file:
     file.write("Player1 wins: " + str(result[0]) + "\n")
     file.write("Player2 wins: " + str(result[1]) + "\n")
     file.write("Draws: " + str(result[2]) + "\n")
-
-    
-    
