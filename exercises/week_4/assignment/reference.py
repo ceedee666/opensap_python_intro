@@ -29,4 +29,3 @@ with open("public.txt", "w") as file:
     for word in pub:
         word += "\n"
         file.write(word)
-    
