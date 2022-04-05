@@ -1,4 +1,4 @@
-import contextlib, io, ast, unittest
+import contextlib, io, unittest
 
 
 @contextlib.contextmanager
