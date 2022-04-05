@@ -1,4 +1,4 @@
-import contextlib, io, ast, unittest
+import contextlib, io, unittest
 
 
 @contextlib.contextmanager
@@ -54,24 +54,14 @@ class Testing(unittest.TestCase):
         super().setUpClass()
         self.code, self.std_out, self.error_out, _ = runcaptured("exercise.py")
 
-    def test_output(self):
-        """Test std_out from user program"""
-
-        expected_out = "List of even numbers created!\n"
-        self.assertEqual(
-            expected_out,
-            self.std_out,
-            "Your program did not print the expected result.",
-        )
-
     def test_output_file(self):
         """Test if expected output file exists and compare with reference file"""
 
-        with open("even_numbers_ref.txt", "r") as reference:
+        with open("public_reference.txt", "r") as reference:
             reference_file_out = reference.read()
 
         try:
-            with open("even_numbers.txt", "r") as input_file:
+            with open("public.txt", "r") as input_file:
                 self.assertEqual(
                     reference_file_out,
                     input_file.read(),
@@ -79,7 +69,7 @@ class Testing(unittest.TestCase):
                 )
         except FileNotFoundError:
             self.fail(
-                "The expected file 'even_numbers.txt' was not found. Did you create it?"
+                "The expected file 'public.txt' was not found. Did you create it?"
             )
 
 

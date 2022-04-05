@@ -33,7 +33,3 @@ Then the content in the file `public.txt` should be as follows:
     .#.
     .#.
     .#.
-
-# Tests
-- public.txt available and contains the expected outcome
-- check if there are two open with modus "r" and one open with modus "w"
