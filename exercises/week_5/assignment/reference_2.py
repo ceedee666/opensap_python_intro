@@ -18,13 +18,13 @@ def encrypt_text(text, keyword):
 
     encrypted_text = ""
 
-    for i in range(len(text)):
-        key_letter = keyword[i % len(keyword)]
+    for index, letter in enumerate(text):
+        key_letter = keyword[index % len(keyword)]
         shift = calculate_shifts(key_letter)
-        if text[i].isalpha():
-            encrypted_text += encrypt_letter(text[i], shift)
+        if letter.isalpha():
+            encrypted_text += encrypt_letter(letter, shift)
         else:
-            encrypted_text += text[i]
+            encrypted_text += letter
     return encrypted_text
 
 

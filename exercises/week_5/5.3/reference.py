@@ -1,13 +1,12 @@
-###BEGIN SOLUTION
-
-def palindrome(sentence):
-    reverse = ""
-    for letter in sentence:
-        reverse = letter + reverse
-    
-    if reverse.lower() == sentence.lower():
+def is_even(number):
+    if number % 2 == 0:
         return True
     else:
         return False
-    
-###END SOLUTION
+
+
+for i in range(100):
+    if is_even(i):
+        print(i, "is even")
+    else:
+        print(i, "is not even")

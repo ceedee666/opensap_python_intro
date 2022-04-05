@@ -8,10 +8,10 @@ jupyter = "*"
 pylint = "*"
 
 [dev-packages]
-pre-commit = "*"
-black = "*"
 black-nb = "*"
 debugpy = "*"
+pre-commit = "*"
+black = "*"
 
 [requires]
 python_version = "3.9"

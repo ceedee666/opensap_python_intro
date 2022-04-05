@@ -1,9 +1,9 @@
-###BEGIN SOLUTION
+def get_student_data():
+    name = input("Enter student's name: ")
+    firstname = input("Enter student's firstname: ")
+    student_id = input("Enter student's ID: ")
+    return (name, firstname, student_id)
 
-def rect_area(laenge, breite = -1):
-    if breite == -1:
-        return laenge * laenge
-    else:
-        return laenge * breite
 
-###END SOLUTION
+new_student = get_student_data()
+print(new_student)

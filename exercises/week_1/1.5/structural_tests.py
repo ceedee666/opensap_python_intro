@@ -93,8 +93,8 @@ class Testing(TestCase):
             number_vars = len(analyzer.stats["vars"])
             self.assertGreaterEqual(
                 number_vars,
-                3,
-                f"You should use at least three variables but you only used {number_vars} variables.",
+                2,
+                f"You should use at least two variables but you only used {number_vars} variables.",
             )
             self.assertLessEqual(
                 number_vars,
