@@ -26,4 +26,3 @@ an `f-string` to output the data as specified.
 - check for `open()`
 - check for `.split()`
 - check for f-string
-- check the output
