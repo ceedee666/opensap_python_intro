@@ -21,8 +21,3 @@ look as follows:
 Read the file line by line and create a list of tuples. Each tuple contains the item (`string`), the number of items
 (`integer`) the price per item (`float`). To identify the individual parts per line, use the method `.split()`. Prepare
 an `f-string` to output the data as specified.
-
-# Proposed tests
-- check for `open()`
-- check for `.split()`
-- check for f-string
