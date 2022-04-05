@@ -18,16 +18,22 @@ class Analyzer(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Call(self, node):
-        # check if open() was used in read- and in write-mode
+        # check if open() was used in read-mode
         for argument in node.args:
-            if isinstance(argument, ast.Constant) and argument.value == "r":
+            if (
+                isinstance(argument, ast.Constant)
+                and node.func.id == "open"
+                and argument.value == "r"
+            ):
                 self.stats["open_read"] += 1
-            elif isinstance(argument, ast.Constant) and argument.value == "w":
-                self.stats["open_write"] += 1
-        self.generic_visit(node)
 
-    def visit_If(self, node):
-        self.stats["if"] += 1
+            elif (
+                isinstance(argument, ast.Constant)
+                and node.func.id == "open"
+                and argument.value == "w"
+            ):
+                self.stats["open_write"] += 1
+
         self.generic_visit(node)
 
 
@@ -39,7 +45,7 @@ class Testing(unittest.TestCase):
         """Setup for just-once actions"""
 
         super().setUpClass()
-        with open("reference.py", "r") as source:  # TODO: change
+        with open("exercise.py", "r") as source:
             self.code = source.read()
 
     def test_source_code(self):
@@ -49,17 +55,9 @@ class Testing(unittest.TestCase):
         analyzer = Analyzer()  # create Analyzer instance
         analyzer.visit(tree)  # visit the nodes of the AST
 
-        used_ifs = analyzer.stats["if"]
         used_with_open = analyzer.stats["with_open"]
         used_open_read = analyzer.stats["open_read"]
         used_open_write = analyzer.stats["open_write"]
-
-        self.assertGreaterEqual(
-            1,
-            used_ifs,
-            "You did not use the correct number of if statements. "
-            f"You need at least one if statement to check if a number is even, but you used {used_ifs}.",
-        )
 
         self.assertGreaterEqual(
             used_with_open,
@@ -68,15 +66,15 @@ class Testing(unittest.TestCase):
         )
 
         self.assertEqual(
-            1,
+            2,
             used_open_read,
-            "You need to open the file exactly one time in read mode to get the numbers.",
+            "You need to open 2 files in read mode to get the input data.",
         )
 
         self.assertEqual(
             1,
             used_open_write,
-            "You need to open the file exactly one time in write mode to write the even numbers to a file.",
+            "You need to open an output file in write-mode to write your 'decrypted' data to.",
         )
 
 
