@@ -57,7 +57,7 @@ class Testing(unittest.TestCase):
     def test_output(self):
         """Test std_out from user program"""
 
-        expected_out = "WHATEVER"
+        expected_out = "Chair            3  29.99   89.97\nTable            1 299.00  299.00\nSideboard        2 349.00  698.00\nShelf           40  90.00 3600.00\n"
         self.assertEqual(
             expected_out,
             self.std_out,
