@@ -60,36 +60,36 @@ class Testing(unittest.TestCase):
         with open("reference.py", "r") as source:  # TODO. CHANGE##############
             self.code = source.read()
 
-    def test_source_code(self):
-        """Analyzer class to parse & process AST"""
-
         tree = ast.parse(self.code)  # build the AST
-        analyzer = Analyzer()  # create Analyzer instance
-        analyzer.visit(tree)  # visit the nodes of the AST
+        self.analyzer = Analyzer()  # create Analyzer instance
+        self.analyzer.visit(tree)  # visit the nodes of the AST
 
-        used_with_open = analyzer.stats["with_open"]
-        used_open_read = analyzer.stats["open_read"]
-        used_open_write = analyzer.stats["open_write"]
+        self.used_with_open = self.analyzer.stats["with_open"]
+        self.used_open_read = self.analyzer.stats["open_read"]
+        self.used_open_write = self.analyzer.stats["open_write"]
+
+    def test_file_io(self):
 
         self.assertGreaterEqual(
-            used_with_open,
+            self.used_with_open,
             1,
             "You should always use a with statement when opening a file.",
         )
 
         self.assertEqual(
             2,
-            used_open_read,
-            f"You need to open two files in read mode to get the input data, but you opened {used_open_read} file(s).",
+            self.used_open_read,
+            f"You need to open two files in read mode to get the input data, but you opened {self.used_open_read} file(s).",
         )
 
         self.assertEqual(
             1,
-            used_open_write,
-            f"You need to open one file in write mode for the result, but you opened {used_open_write} file(s)",
+            self.used_open_write,
+            f"You need to open one file in write mode for the result, but you opened {self.used_open_write} file(s)",
         )
 
-        if analyzer.stats["for_if"] < 1 and analyzer.stats["while_if"] < 1:
+    def test_for_while(self):
+        if self.analyzer.stats["for_if"] < 1 and self.analyzer.stats["while_if"] < 1:
             self.fail(
                 "You should use an if statement either in a for or in a while loop to compare the results."
             )
