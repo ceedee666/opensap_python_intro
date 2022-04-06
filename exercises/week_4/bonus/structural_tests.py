@@ -18,7 +18,7 @@ class Analyzer(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Call(self, node):
-        # check if open() was used in read-mode
+        # check if open() was used in read-mode or in write-mode
         for argument in node.args:
             if (
                 isinstance(argument, ast.Constant)
@@ -27,13 +27,25 @@ class Analyzer(ast.NodeVisitor):
             ):
                 self.stats["open_read"] += 1
 
-        if isinstance(node.func, ast.Attribute) and node.func.attr == "split":
-            self.stats["split"] += 1
+            elif (
+                isinstance(argument, ast.Constant)
+                and node.func.id == "open"
+                and argument.value == "w"
+            ):
+                self.stats["open_write"] += 1
 
         self.generic_visit(node)
 
-    def visit_JoinedStr(self, node):
-        self.stats["f_string"] += 1
+    def visit_For(self, node):
+        for sub_node in ast.walk(node):
+            if isinstance(sub_node, ast.If):
+                self.stats["for_if"] += 1
+        self.generic_visit(node)
+
+    def visit_While(self, node):
+        for sub_node in ast.walk(node):
+            if isinstance(sub_node, ast.While):
+                self.stats["while_if"] += 1
         self.generic_visit(node)
 
 
@@ -45,7 +57,7 @@ class Testing(unittest.TestCase):
         """Setup for just-once actions"""
 
         super().setUpClass()
-        with open("exercise.py", "r") as source:
+        with open("reference.py", "r") as source:  # TODO. CHANGE##############
             self.code = source.read()
 
     def test_source_code(self):
@@ -57,7 +69,7 @@ class Testing(unittest.TestCase):
 
         used_with_open = analyzer.stats["with_open"]
         used_open_read = analyzer.stats["open_read"]
-        used_split = analyzer.stats["split"]
+        used_open_write = analyzer.stats["open_write"]
 
         self.assertGreaterEqual(
             used_with_open,
@@ -66,22 +78,21 @@ class Testing(unittest.TestCase):
         )
 
         self.assertEqual(
-            1,
+            2,
             used_open_read,
-            "You need to open the file exactly one time in read mode to get the invoice data.",
+            f"You need to open two files in read mode to get the input data, but you opened {used_open_read} file(s).",
         )
 
         self.assertEqual(
             1,
-            used_split,
-            f"You need to use the split() method to identify the individual parts of the lines once, but you used it {used_split} times.",
+            used_open_write,
+            f"You need to open one file in write mode for the result, but you opened {used_open_write} file(s)",
         )
 
-        self.assertGreaterEqual(
-            analyzer.stats["f_string"],
-            1,
-            "You should use an f-string so solve this exercise.",
-        )
+        if analyzer.stats["for_if"] < 1 and analyzer.stats["while_if"] < 1:
+            self.fail(
+                "You should use an if statement either in a for or in a while loop to compare the results."
+            )
 
 
 if __name__ == "__main__":

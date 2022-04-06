@@ -18,7 +18,7 @@ class Analyzer(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Call(self, node):
-        # check if open() was used in read-mode
+        # check if open() was used in read-mode or in write-mode
         for argument in node.args:
             if (
                 isinstance(argument, ast.Constant)
