@@ -15,13 +15,14 @@ class Analyzer(ast.NodeVisitor):
         self.nested_for = False
 
     def visit_FunctionDef(self, node):
-        self.stats[node.name] = True
-        self.stats[f"{node.name}_args_count"] = len(node.args.args)
+        self.stats[f"def_{node.name}"] = True
+        self.stats[f"def_{node.name}_args_count"] = len(node.args.args)
         self.generic_visit(node)
 
-    def visit_call(self, node):
+    def visit_Call(self, node):
         if isinstance(node.func, ast.Name):
             self.stats[node.func.id] += 1
+        self.generic_visit(node)
 
 
 class Testing(TestCase):
@@ -33,13 +34,13 @@ class Testing(TestCase):
             analyzer.visit(tree)
 
             self.assertEqual(
-                analyzer.stats["encrypt_letter"],
+                analyzer.stats["def_encrypt_letter"],
                 True,
                 "You need to define a function encrypt_letter() to solve this exercise.",
             )
 
             self.assertEqual(
-                analyzer.stats["encrypt_letter_args_count"],
+                analyzer.stats["def_encrypt_letter_args_count"],
                 2,
                 "You need to define a function encrypt_letter() with two parameter to solve this exercise.",
             )
@@ -52,13 +53,13 @@ class Testing(TestCase):
             analyzer.visit(tree)
 
             self.assertEqual(
-                analyzer.stats["calculate_shifts"],
+                analyzer.stats["def_calculate_shifts"],
                 True,
                 "You need to define a function calculate_shifts() to solve this exercise.",
             )
 
             self.assertEqual(
-                analyzer.stats["calculate_shifts_args_count"],
+                analyzer.stats["def_calculate_shifts_args_count"],
                 1,
                 "You need to define a function calculate_shifts() with one parameter to solve this exercise.",
             )
@@ -71,13 +72,13 @@ class Testing(TestCase):
             analyzer.visit(tree)
 
             self.assertEqual(
-                analyzer.stats["encrypt_text"],
+                analyzer.stats["def_encrypt_text"],
                 True,
                 "You need to define a function encrypt_text() to solve this exercise.",
             )
 
             self.assertEqual(
-                analyzer.stats["encrypt_text_args_count"],
+                analyzer.stats["def_encrypt_text_args_count"],
                 2,
                 "You need to define a function encrypt_text() with one parameter to solve this exercise.",
             )
