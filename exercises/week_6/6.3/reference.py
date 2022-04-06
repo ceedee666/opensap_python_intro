@@ -8,4 +8,4 @@ def gaussian_distribution(mean=100, standard_derivation=10):
 
 random_list = gaussian_distribution()
 print("Mean: ", statistics.mean(random_list))
-print("StDev: ", statistics.stdev(random_list))
+print("Standard Deviation: ", statistics.stdev(random_list))
