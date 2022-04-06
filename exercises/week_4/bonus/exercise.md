@@ -21,7 +21,7 @@ and how many games ended in a draw. The results are written into a file `result.
 The sum should always be 100.
 
 # Tests
-- check if a file exist and contains the correct result
+D check if a file exist and contains the correct result
 - check if two files are opened
 - check if one file is written
 - check if there is either a for or while loop containing an if-statement
