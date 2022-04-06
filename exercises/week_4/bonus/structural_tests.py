@@ -57,7 +57,7 @@ class Testing(unittest.TestCase):
         """Setup for just-once actions"""
 
         super().setUpClass()
-        with open("reference.py", "r") as source:  # TODO. CHANGE##############
+        with open("exercise.py", "r") as source:
             self.code = source.read()
 
         tree = ast.parse(self.code)  # build the AST
