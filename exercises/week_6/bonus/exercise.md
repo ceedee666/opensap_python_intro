@@ -39,3 +39,7 @@ Calculated value of π: 3.1396
 Value of π from math library: 3.141592653589793
 Difference: -0.0019926535897929476
 ```
+
+## Additional Challenge
+
+Can you solve the bonus exercise without a for loop using list comprehension?
