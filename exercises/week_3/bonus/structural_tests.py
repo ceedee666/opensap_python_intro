@@ -80,7 +80,7 @@ class Testing(TestCase):
             self.assertGreaterEqual(
                 analyzer.stats["for"],
                 1,
-                "Youd should use a for loop to iterates through the letters of the user input.",
+                "You should use a for loop to iterates through the letters of the user input.",
             )
 
     def test_mod(self):
