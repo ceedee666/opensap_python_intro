@@ -26,7 +26,7 @@ class Analyzer(ast.NodeVisitor):
 
 
 class Testing(TestCase):
-    def test_function_encrypt_letter(self):
+    def test_function_is_prime(self):
         with open("exercise.py", "r") as source:
             tree = ast.parse(source.read())
 
@@ -34,37 +34,18 @@ class Testing(TestCase):
             analyzer.visit(tree)
 
             self.assertEqual(
-                analyzer.stats["def_encrypt_letter"],
+                analyzer.stats["def_is_prime"],
                 True,
-                "You need to define a function encrypt_letter() to solve this exercise.",
+                "You need to define a function is_prime() to solve this exercise.",
             )
 
             self.assertEqual(
-                analyzer.stats["def_encrypt_letter_args_count"],
-                2,
-                "You need to define a function encrypt_letter() with two parameter to solve this exercise.",
-            )
-
-    def test_function_calculate_shifts(self):
-        with open("exercise.py", "r") as source:
-            tree = ast.parse(source.read())
-
-            analyzer = Analyzer()
-            analyzer.visit(tree)
-
-            self.assertEqual(
-                analyzer.stats["def_calculate_shifts"],
-                True,
-                "You need to define a function calculate_shifts() to solve this exercise.",
-            )
-
-            self.assertEqual(
-                analyzer.stats["def_calculate_shifts_args_count"],
+                analyzer.stats["def_is_prime_args_count"],
                 1,
-                "You need to define a function calculate_shifts() with one parameter to solve this exercise.",
+                "You need to define a function is_prime() with one parameter to solve this exercise.",
             )
 
-    def test_function_stopping_distance(self):
+    def test_function_prime_list(self):
         with open("exercise.py", "r") as source:
             tree = ast.parse(source.read())
 
@@ -72,15 +53,15 @@ class Testing(TestCase):
             analyzer.visit(tree)
 
             self.assertEqual(
-                analyzer.stats["def_encrypt_text"],
+                analyzer.stats["def_prime_list"],
                 True,
-                "You need to define a function encrypt_text() to solve this exercise.",
+                "You need to define a function prime_list() to solve this exercise.",
             )
 
             self.assertEqual(
-                analyzer.stats["def_encrypt_text_args_count"],
-                2,
-                "You need to define a function encrypt_text() with one parameter to solve this exercise.",
+                analyzer.stats["def_prime_list_args_count"],
+                1,
+                "You need to define a function prime_list() with one parameter to solve this exercise.",
             )
 
     def test_in_and_output(self):
@@ -91,15 +72,20 @@ class Testing(TestCase):
             analyzer.visit(tree)
 
             self.assertGreaterEqual(
+                analyzer.stats["int"],
+                1,
+                "You need to use the int function at least once to solve this exercise.",
+            )
+            self.assertGreaterEqual(
                 analyzer.stats["input"],
-                2,
-                "You need to use the input function two times to solve this exercise.",
+                1,
+                "You need to use the input function once to solve this exercise.",
             )
 
             self.assertGreaterEqual(
                 analyzer.stats["print"],
                 1,
-                "You need to use the print function one time to solve this exercise.",
+                "You need to use the print function once to solve this exercise.",
             )
 
 
