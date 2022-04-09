@@ -1,0 +1,21 @@
+{
+  "resultCount": 1,
+  "results": [
+    {
+      "wrapperType": "collection",
+      "collectionType": "Album",
+      "artistId": 60715,
+      "amgArtistId": 5223,
+      "artistName": "Ramones",
+      "collectionName": "Ramones",
+      "collectionPrice": 9.99,
+      "collectionExplicitness": "notExplicit",
+      "trackCount": 14,
+      "copyright": "℗ 1976 Sire Records. Marketed by Rhino Entertainment Company, a Warner Music Group Company.",
+      "country": "USA",
+      "currency": "USD",
+      "releaseDate": "1976-04-23T08:00:00Z",
+      "primaryGenreName": "Punk"
+    }
+  ]
+}
