@@ -24,5 +24,5 @@ Below is an example execution of the program:
     Value: 4
     Value: 5
     Value: 6
-    Sum of row: 5
+    Sum of row: 6
     Sum of row: 15
