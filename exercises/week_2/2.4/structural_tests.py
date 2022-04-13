@@ -96,7 +96,7 @@ class Testing(TestCase):
                     "You should use the print function one time to print the sell_list."
                 )
 
-            if analyzer.stats["for"] >= 1:
+            if analyzer.stats["for"] < 1:
                 self.fail(
                     "You should use the for loop at least once to solve the exercise"
                 )
@@ -110,7 +110,7 @@ class Testing(TestCase):
                     "You should define a variable named sell_list. This variable should contain a list of stock symbols to sell.",
                 )
 
-            if "append_to_sell_list" not in analyzer.stats:
+            if "append" not in analyzer.stats:
                 self.fail(
                     "You should use the append method to add the stock symbols to the sell_list."
                 )
