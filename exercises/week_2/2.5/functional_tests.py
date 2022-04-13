@@ -55,28 +55,32 @@ class Testing(TestCase):
 
         output = self.std_out.getvalue().strip().split("\n")
 
+        start_index = 1
+        if len(output) == 4 and "matrix values" in output[0].lower():
+            start_index = 0
+
         expected_out = "6"
         self.assertIn(
             expected_out,
-            output[1],
+            output[start_index],
             "The output of your program is not correct. The sum of the rows is not calculated correctly.",
         )
 
         expected_out = "15"
         self.assertIn(
             expected_out,
-            output[2],
+            output[start_index + 1],
             "The output of your program is not correct. The sum of the rows is not calculated correctly.",
         )
 
         expected_out = "24"
         self.assertIn(
             expected_out,
-            output[3],
+            output[start_index + 2],
             "The output of your program is not correct. The sum of the rows is not calculated correctly.",
         )
 
-        for line in output[1:]:
+        for line in output[start_index:]:
             expected_out = "Sum of row"
             self.assertIn(
                 expected_out,
