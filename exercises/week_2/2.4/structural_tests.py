@@ -65,22 +65,22 @@ class Analyzer(ast.NodeVisitor):
         if isinstance(node.func, ast.Attribute):
             if node.func.attr == "append":
                 self.stats["append"] += 1
-                if node.func.value.id == "sell_list":
-                    self.stats["append_to_sell_list"] = True
 
         self.generic_visit(node)
 
     def visit_For(self, node):
         self.stats["for"] += 1
 
-        if node.target.id == "stocks":
-            self.stats["iterate_stocks"] = True
+        if isinstance(node.target, ast.Name):
+            if node.target.id == "stocks":
+                self.stats["iterate_stocks"] = True
 
         self.generic_visit(node)
 
     def visit_Assign(self, node):
-        self.stats["vars"].add(node.targets[0].id)
-        self.generic_visit(node)
+        if isinstance(node.targets[0], ast.Name):
+            self.stats["vars"].add(node.targets[0].id)
+            self.generic_visit(node)
 
 
 class Testing(TestCase):
@@ -96,9 +96,9 @@ class Testing(TestCase):
                     "You should use the print function one time to print the sell_list."
                 )
 
-            if analyzer.stats["for"] != 1:
+            if analyzer.stats["for"] >= 1:
                 self.fail(
-                    "You should use one for loop to iterate through the list in the variable stocks."
+                    "You should use the for loop at least once to solve the exercise"
                 )
             if "stocks" not in analyzer.stats["vars"]:
                 self.fail(
@@ -110,14 +110,9 @@ class Testing(TestCase):
                     "You should define a variable named sell_list. This variable should contain a list of stock symbols to sell.",
                 )
 
-            if "print_with_var" not in analyzer.stats:
-                self.fail(
-                    "You should use the variable sell_list when calling the print function.",
-                )
-
             if "append_to_sell_list" not in analyzer.stats:
                 self.fail(
-                    "You should use one append to add the stock symbols to the sell_list."
+                    "You should use the append method to add the stock symbols to the sell_list."
                 )
 
 
