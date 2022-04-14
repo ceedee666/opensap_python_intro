@@ -55,9 +55,9 @@ class Testing(TestCase):
 
         output = self.std_out.getvalue().strip().split("\n")
 
-        start_index = 1
+        start_index = 0
         if len(output) == 4 and "matrix values" in output[0].lower():
-            start_index = 0
+            start_index = 1
 
         expected_out = "6"
         self.assertIn(

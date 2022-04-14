@@ -37,8 +37,9 @@ class Analyzer(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Assign(self, node):
-        self.stats["vars"].add(node.targets[0].id)
-        self.generic_visit(node)
+        if isinstance(node.targets[0], ast.Name):
+            self.stats["vars"].add(node.targets[0].id)
+            self.generic_visit(node)
 
 
 class Testing(TestCase):
