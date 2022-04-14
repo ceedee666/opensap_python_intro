@@ -53,17 +53,19 @@ class Analyzer(ast.NodeVisitor):
         self.stats = {"print": 0, "input": 0, "vars": set()}
 
     def visit_Call(self, node):
-        if node.func.id == "print":
-            self.stats["print"] += 1
+        if isinstance(node.func, ast.Name):
+            if node.func.id == "print":
+                self.stats["print"] += 1
 
-        if node.func.id == "input":
-            self.stats["input"] += 1
+            if node.func.id == "input":
+                self.stats["input"] += 1
 
         self.generic_visit(node)
 
     def visit_Assign(self, node):
-        self.stats["vars"].add(node.targets[0].id)
-        self.generic_visit(node)
+        if isinstance(node.targets[0], ast.Name):
+            self.stats["vars"].add(node.targets[0].id)
+            self.generic_visit(node)
 
 
 class Testing(TestCase):
