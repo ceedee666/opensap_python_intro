@@ -93,7 +93,7 @@ class Testing(TestCase):
 
             if analyzer.stats["print"] != 1:
                 self.fail(
-                    "You should use the print function one time to print the sell_list."
+                    "You should use the print() function one time to print the sell_list."
                 )
 
             if analyzer.stats["for"] < 1:

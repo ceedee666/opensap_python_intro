@@ -81,12 +81,12 @@ class Testing(TestCase):
 
             if analyzer.stats["print"] != 1:
                 self.fail(
-                    "You should use the print function one time.",
+                    "You should use the print() function one time.",
                 )
 
             if analyzer.stats["input"] != 2:
                 self.fail(
-                    "You should use the input function two times.",
+                    "You should use the input() function two times.",
                 )
 
 

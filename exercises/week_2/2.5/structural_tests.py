@@ -52,19 +52,19 @@ class Testing(TestCase):
             self.assertGreaterEqual(
                 analyzer.stats["input"],
                 3,
-                "You need to use three calls to the input function to solve this exercise.",
+                "You need to use three calls to the input() function to solve this exercise.",
             )
 
             self.assertGreaterEqual(
                 analyzer.stats["int"],
                 3,
-                "You need to use three calls to the int function to convert to user input to type integer.",
+                "You need to use three calls to the int() function to convert to user input to type integer.",
             )
 
             self.assertGreaterEqual(
                 analyzer.stats["append"],
                 1,
-                "You should use the append method to add the user input to the matrix.",
+                "You should use the append() method to add the user input to the matrix.",
             )
 
     def test_nested_for(self):

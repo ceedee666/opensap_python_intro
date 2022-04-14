@@ -58,7 +58,7 @@ class Testing(TestCase):
         (
             self.analyzer.stats["range"],
             1,
-            f"You should use the range function to create a list of number from 1 to 100.",
+            f"You should use the range() function to create a list of number from 1 to 100.",
         )
 
 
