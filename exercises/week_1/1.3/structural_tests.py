@@ -77,7 +77,7 @@ class Testing(TestCase):
             self.assertEqual(
                 analyzer.stats["input"],
                 4,
-                f'You should use the input function four times but you only used it {analyzer.stats["input"]} times.',
+                f'You should use the input() function four times but you only used it {analyzer.stats["input"]} times.',
             )
             self.assertEqual(
                 analyzer.stats["print"],

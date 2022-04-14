@@ -79,13 +79,13 @@ class Testing(TestCase):
             self.assertGreaterEqual(
                 analyzer.stats["input"],
                 3,
-                "You need to use three calls to the input function to solve this exercise.",
+                "You need to use three calls to the input() function to solve this exercise.",
             )
 
             self.assertGreaterEqual(
                 analyzer.stats["int"],
                 3,
-                "You need to use at least three calls to the int function to convert the user input to type integer.",
+                "You need to use at least three calls to the int() function to convert the user input to type integer.",
             )
 
             self.assertGreaterEqual(

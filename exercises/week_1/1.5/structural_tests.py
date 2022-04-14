@@ -77,17 +77,17 @@ class Testing(TestCase):
             self.assertEqual(
                 analyzer.stats["input"],
                 3,
-                f'You should use the input function three times but you only used it {analyzer.stats["input"]} times.',
+                f'You should use the input() function three times but you only used it {analyzer.stats["input"]} times.',
             )
             self.assertEqual(
                 analyzer.stats["int"],
                 3,
-                f'You should use the int function three times but you only used it {analyzer.stats["input"]} times. The int function is required to convert the input into an integer number.',
+                f'You should use the int() function three times but you only used it {analyzer.stats["input"]} times. The int() function is required to convert the input into an integer number.',
             )
             self.assertEqual(
                 analyzer.stats["print"],
                 1,
-                "You should use the print function one time.",
+                "You should use the print() function one time.",
             )
 
             number_vars = len(analyzer.stats["vars"])
