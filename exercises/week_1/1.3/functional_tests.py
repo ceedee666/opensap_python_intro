@@ -1,4 +1,3 @@
-import ast
 import contextlib
 import io
 import os
@@ -55,7 +54,7 @@ class Testing(TestCase):
 
         self.code, self.std_out, self.error_out, _ = runcaptured()
         expected_out = "Christian wants to travel from Aachen to Berlin by Car"
-        self.assertEqual(self.std_out.getvalue().strip(), expected_out)
+        self.assertIn(expected_out, self.std_out.getvalue().strip())
 
 
 if __name__ == "__main__":
