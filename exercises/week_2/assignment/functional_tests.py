@@ -1,4 +1,3 @@
-import ast
 import contextlib
 import io
 import os
@@ -109,17 +108,17 @@ class Testing(TestCase):
         )
 
         self.assertIn(
-            "0",
+            "200",
             output[2],
             f"For an initial stock of 300 and a sales plan of 100, 400, 200, 10 the production quantity in the second month should be 200. Your output is:\n {output[2]}",
         )
         self.assertIn(
-            "0",
+            "200",
             output[3],
             f"For an initial stock of 300 and a sales plan of 100, 400, 200, 10 the production quantity in the third month should be 200. Your output is:\n {output[3]}",
         )
         self.assertIn(
-            "0",
+            "10",
             output[4],
             f"For an initial stock of 300 and a sales plan of 100, 400, 200, 10 the production quantity in the fourth month should be 10. Your output is:\n {output[4]}",
         )
