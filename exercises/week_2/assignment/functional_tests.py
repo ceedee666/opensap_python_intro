@@ -50,7 +50,7 @@ def runcaptured(tracing=None, variables=None):
 class Testing(TestCase):
     @mock.patch("builtins.input", create=True)
     def test_zero_production(self, mocked_input):
-        mocked_input.side_effect = [600, 5, 10, 10, 10, 10, 10]
+        mocked_input.side_effect = ["600", "5", "10", "10", "10", "10", "10"]
 
         self.code, self.std_out, self.error_out, _ = runcaptured()
         output = self.std_out.getvalue().strip().split("\n")
@@ -90,7 +90,7 @@ class Testing(TestCase):
 
     @mock.patch("builtins.input", create=True)
     def test_production(self, mocked_input):
-        mocked_input.side_effect = [300, 4, 100, 400, 200, 10]
+        mocked_input.side_effect = ["300", "4", "100", "400", "200", "10"]
 
         self.code, self.std_out, self.error_out, _ = runcaptured()
         output = self.std_out.getvalue().strip().split("\n")
