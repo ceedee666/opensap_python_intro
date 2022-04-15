@@ -58,7 +58,7 @@ def runcaptured(tracing=None, variables=None):
 class Testing(TestCase):
     @mock.patch("builtins.input", create=True)
     def test_reaction_path(self, mocked_input):
-        mocked_input.side_effect = [50]
+        mocked_input.side_effect = ["50"]
         with capture() as out:
             import exercise as user
 
@@ -79,7 +79,7 @@ class Testing(TestCase):
 
     @mock.patch("builtins.input", create=True)
     def test_brake_distance(self, mocked_input):
-        mocked_input.side_effect = [50]
+        mocked_input.side_effect = ["50"]
         with capture() as out:
             import exercise as user
 
@@ -100,7 +100,7 @@ class Testing(TestCase):
 
     @mock.patch("builtins.input", create=True)
     def test_stopping_distance(self, mocked_input):
-        mocked_input.side_effect = [50]
+        mocked_input.side_effect = ["50"]
         with capture() as out:
             import exercise as user
 
@@ -121,7 +121,7 @@ class Testing(TestCase):
 
     @mock.patch("builtins.input", create=True)
     def test_program_result(self, mocked_input):
-        mocked_input.side_effect = [50]
+        mocked_input.side_effect = ["50"]
 
         self.code, self.std_out, self.error_out, _ = runcaptured()
 
