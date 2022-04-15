@@ -50,7 +50,19 @@ def runcaptured(tracing=None, variables=None):
 class Testing(TestCase):
     @mock.patch("builtins.input", create=True)
     def test_output(self, mocked_input):
-        mocked_input.side_effect = [3, 3, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        mocked_input.side_effect = [
+            "3",
+            "3",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+        ]
         self.code, self.std_out, self.error_out, _ = runcaptured()
 
         output = self.std_out.getvalue().strip().split("\n")
