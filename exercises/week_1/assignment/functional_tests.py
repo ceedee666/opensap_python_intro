@@ -48,30 +48,10 @@ def runcaptured(tracing=None, variables=None):
         return source, out[0], out[1], variables
 
 
-class Analyzer(ast.NodeVisitor):
-    def __init__(self):
-        self.stats = {"input": 0, "vars": set(), "int": 0}
-        self.nested_for = False
-
-    def visit_Call(self, node):
-        if isinstance(node.func, ast.Name):
-            if node.func.id == "input":
-                self.stats["input"] += 1
-
-            if node.func.id == "int":
-                self.stats["int"] += 1
-
-        self.generic_visit(node)
-
-    def visit_Assign(self, node):
-        self.stats["vars"].add(node.targets[0].id)
-        self.generic_visit(node)
-
-
 class Testing(TestCase):
     @mock.patch("builtins.input", create=True)
     def test_right_triangle(self, mocked_input):
-        mocked_input.side_effect = [60, 90, 30]
+        mocked_input.side_effect = ["60", "90", "30"]
         self.code, self.std_out, self.error_out, _ = runcaptured()
 
         output = self.std_out.getvalue().strip()
@@ -101,7 +81,7 @@ class Testing(TestCase):
 
     @mock.patch("builtins.input", create=True)
     def test_acute_triangle(self, mocked_input):
-        mocked_input.side_effect = [33, 77, 70]
+        mocked_input.side_effect = ["33", "77", "70"]
         self.code, self.std_out, self.error_out, _ = runcaptured()
 
         output = self.std_out.getvalue().strip()
@@ -131,7 +111,7 @@ class Testing(TestCase):
 
     @mock.patch("builtins.input", create=True)
     def test_obtuse_triangle(self, mocked_input):
-        mocked_input.side_effect = [30, 30, 120]
+        mocked_input.side_effect = ["30", "30", "120"]
         self.code, self.std_out, self.error_out, _ = runcaptured()
 
         output = self.std_out.getvalue().strip()
@@ -161,7 +141,7 @@ class Testing(TestCase):
 
     @mock.patch("builtins.input", create=True)
     def test_not_valid_triangle(self, mocked_input):
-        mocked_input.side_effect = [10, 10, 10]
+        mocked_input.side_effect = ["10", "10", "10"]
         self.code, self.std_out, self.error_out, _ = runcaptured()
 
         output = self.std_out.getvalue().strip()
@@ -173,7 +153,7 @@ class Testing(TestCase):
             f"The output of your program is not correct. The values 10, 10 and 10 are not valid. The output of your program was: {output}",
         )
 
-        mocked_input.side_effect = [100, 100, 100]
+        mocked_input.side_effect = ["100", "100", "100"]
         self.code, self.std_out, self.error_out, _ = runcaptured()
 
         output = self.std_out.getvalue().strip()
@@ -185,7 +165,7 @@ class Testing(TestCase):
             f"The output of your program is not correct. The values 100, 100 and 100 are not valid. The output of your program was: {output}",
         )
 
-        mocked_input.side_effect = [200, -10, -10]
+        mocked_input.side_effect = ["200", "-10", "-10"]
         self.code, self.std_out, self.error_out, _ = runcaptured()
 
         output = self.std_out.getvalue().strip()
