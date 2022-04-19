@@ -1,6 +1,7 @@
 import contextlib
 import io
 import os
+import random
 import sys
 import unittest
 from unittest import TestCase, mock
@@ -97,6 +98,55 @@ class Testing(TestCase):
                 str(album[2]),
                 output,
                 f"For the search term 'gold' the result should contain the track count {album[2]}",
+            )
+
+    @mock.patch("builtins.input", create=True)
+    def test_search_random(self, mocked_input):
+        search_terms = [
+            "blue",
+            "elvis",
+            "little",
+            "pepper",
+            "revolver",
+            "pet",
+            "dark",
+            "moon",
+            "thriller",
+            "destruction",
+            "nevermind",
+            "computer",
+        ]
+
+        search_term = random.choice(search_terms)
+
+        result_count, albums = RefernceSolution().search_itunes(search_term)
+
+        mocked_input.side_effect = [search_term]
+        self.code, self.std_out, self.error_out, _ = runcaptured()
+        output = self.std_out.getvalue().strip()
+        lines = output.split("\n")
+
+        self.assertIn(
+            str(result_count),
+            lines[0],
+            f"The first line of the output should contain the number of search results. For the search term '{search_term}' this should {result_count}.",
+        )
+
+        for album in albums:
+            self.assertIn(
+                album[0],
+                output,
+                f"For the search term '{search_term}' the result should contain the artist {album[0]}",
+            )
+            self.assertIn(
+                album[1],
+                output,
+                f"For the search term '{search_term}' the result should contain the album {album[1]}",
+            )
+            self.assertIn(
+                str(album[2]),
+                output,
+                f"For the search term '{search_term}' the result should contain the track count {album[2]}",
             )
 
 
