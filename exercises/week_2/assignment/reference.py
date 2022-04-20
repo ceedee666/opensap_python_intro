@@ -21,4 +21,4 @@ for i in range(number_of_month):
 
 print("The resulting production quantities are:")
 for i in range(number_of_month):
-    print("production quantity month", i, "-", production_plan[i])
+    print("production quantity month", i + 1, "-", production_plan[i])
