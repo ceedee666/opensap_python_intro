@@ -20,9 +20,17 @@ class Analyzer(ast.NodeVisitor):
     def visit_Call(self, node):
         # check if open() was used in read- and in write-mode
         for argument in node.args:
-            if isinstance(argument, ast.Constant) and argument.value == "r":
+            if (
+                isinstance(argument, ast.Constant)
+                and node.func.id == "open"
+                and argument.value == "r"
+            ):
                 self.stats["open_read"] += 1
-            elif isinstance(argument, ast.Constant) and argument.value == "w":
+            elif (
+                isinstance(argument, ast.Constant)
+                and node.func.id == "open"
+                and argument.value == "w"
+            ):
                 self.stats["open_write"] += 1
         self.generic_visit(node)
 
@@ -39,7 +47,7 @@ class Testing(unittest.TestCase):
         """Setup for just-once actions"""
 
         super().setUpClass()
-        with open("reference.py", "r") as source:  # TODO: change
+        with open("exercise.py", "r") as source:  # TODO: change
             self.code = source.read()
 
     def test_source_code(self):
