@@ -27,21 +27,21 @@ and print the encrypted text. Here is an example execution of the program:
     Please enter a sentence: python is fun!
     The encrypted sentence is: udymts nx kzs!
 
-
-Here is another execution of the program
+<br/>
+Here is another execution of the program:
 
     Please enter the number of places to shift: 10
     Please enter a sentence: python is fun!
     The encrypted sentence is: zidryx sc pex!
 
-
-And yet another one
+<br/>
+And yet another one:
 
     Please enter the number of places to shift: 0
     Please enter a sentence: python is fun!
     The encrypted sentence is: python is fun!
 
-
+<br/>
 Your program should check that only numbers between 0 and 25 are entered for the number of places to shift!
 
     Please enter the number of places to shift: 60
