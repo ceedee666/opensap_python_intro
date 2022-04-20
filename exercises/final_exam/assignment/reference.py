@@ -27,7 +27,20 @@ def play():
     word = random_word(word_list())
 
     won = False
-    i = 0
-    while i < 6 and not (won):
+
+    for _ in range(6):
         guess = input("Please enter a guess: ")
         result = check_guess(guess, word)
+        if result == "XXXXX":
+            won = True
+            break
+
+    if won:
+        print("You won!")
+    else:
+        print("You lost!")
+        print("The word was:", word)
+
+
+if __name__ == "__main__":
+    play()
