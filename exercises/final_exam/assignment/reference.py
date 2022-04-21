@@ -23,23 +23,42 @@ def check_guess(guess, word):
     return result
 
 
+def is_real_word(guess, word_list):
+    return guess in word_list
+
+
+def next_guess(word_list):
+    guess = ""
+    in_word_list = False
+    while not in_word_list:
+        guess = input("Please enter a guess: ")
+        if is_real_word(guess, word_list):
+            in_word_list = True
+        else:
+            print("That's not a real word!")
+    return guess
+
+
 def play():
-    word = random_word(word_list())
+    five_letter_words = word_list()
+    secret_word = random_word(five_letter_words)
 
     won = False
 
     for _ in range(6):
-        guess = input("Please enter a guess: ")
-        result = check_guess(guess, word)
+        guess = next_guess(five_letter_words)
+        result = check_guess(guess, secret_word)
         if result == "XXXXX":
             won = True
             break
+        else:
+            print(result)
 
     if won:
         print("You won!")
     else:
         print("You lost!")
-        print("The word was:", word)
+        print("The word was:", secret_word)
 
 
 if __name__ == "__main__":
