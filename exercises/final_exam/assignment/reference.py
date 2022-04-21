@@ -32,6 +32,8 @@ def next_guess(word_list):
     in_word_list = False
     while not in_word_list:
         guess = input("Please enter a guess: ")
+        guess = guess.lower()
+
         if is_real_word(guess, word_list):
             in_word_list = True
         else:
