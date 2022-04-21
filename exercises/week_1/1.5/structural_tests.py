@@ -82,7 +82,7 @@ class Testing(TestCase):
             self.assertEqual(
                 analyzer.stats["int"],
                 3,
-                f'You should use the int() function three times but you only used it {analyzer.stats["input"]} times. The int() function is required to convert the input into an integer number.',
+                f'You should use the int() function three times but you used it {analyzer.stats["int"]} times. The int() function is required to convert the input into an integer number.',
             )
             self.assertEqual(
                 analyzer.stats["print"],
