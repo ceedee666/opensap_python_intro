@@ -19,7 +19,7 @@ version of Wordle preform the following steps:
    - `_` for each character in the guess that is not part of the word.
      For example, `check_guess("birds", "words")` should return `__XXX`.
 1. Implement a function `next_guess()` that takes a word list as a parameter. The function asks the user
-   for a guess and checks if the guess is in the word list. If yes, the guess is returned. If not asks the user
+   for a guess converts the guess to lower case and checks if the guess is in the word list. If yes, the guess is returned. If not asks the user
    for another guess.
 1. Implement a function `play()` that:
 
