@@ -73,10 +73,23 @@ class ReferenceImplementation:
 
 
 class Testing(TestCase):
+    @mock.patch("builtins.open", create=True)
+    def test_word_list(self, mock_open):
+        mock_open.return_value = io.StringIO("aaaaa\nbbbbb\nccccc")
+        with capture():
+            import exercise as user
+
+        result = user.word_list()
+        self.assertEqual(
+            result,
+            ["aaaaa", "bbbbb", "ccccc"],
+            "The function word_list should return a list of words from the input file. Trailing '\n' should be removed",
+        )
+
     @mock.patch("builtins.input", create=True)
     def test_random_word(self, mock_input):
         mock_input.side_effect = ["world"] * 30
-        with capture() as out:
+        with capture():
             import exercise as user
 
         result = user.random_word(["aaaaa"])
@@ -113,7 +126,7 @@ class Testing(TestCase):
     @mock.patch("builtins.input", create=True)
     def test_check_guess(self, mock_input):
         mock_input.side_effect = ["world"] * 30
-        with capture() as out:
+        with capture():
             import exercise as user
 
         result = user.check_guess("aaaaa", "bbbbb")
@@ -164,7 +177,7 @@ class Testing(TestCase):
     @mock.patch("builtins.input", create=True)
     def test_is_real_word(self, mock_input):
         mock_input.side_effect = ["world"] * 30
-        with capture() as out:
+        with capture():
             import exercise as user
 
         test_word_list = [
@@ -199,10 +212,12 @@ class Testing(TestCase):
             f"The result of the function check_guess is not correct. The function should return '{expected_out}' for a word that is in the list of words.",
         )
 
+    @mock.patch("builtins.print", create=True)
     @mock.patch("builtins.input", create=True)
-    def test_next_guess(self, mock_input):
+    def test_next_guess(self, mock_input, mock_print):
+        mock_print.return_value = None
         mock_input.side_effect = ["world"] * 30
-        with capture() as out:
+        with capture():
             import exercise as user
 
         mock_input.side_effect = ["these"]
@@ -238,6 +253,68 @@ class Testing(TestCase):
             result,
             "The result of the function next_guess is not correct. The function should convert the user input to lower case before checking if a valid word was entered.",
         )
+
+    @mock.patch("builtins.open")
+    @mock.patch("builtins.input")
+    def test_play(self, mock_input, mock_open):
+
+        mock_input.side_effect = ["world"] * 30
+        with capture():
+            import exercise as user
+
+        mock_input.side_effect = ["which", "there", "these"]
+        mock_open.return_value = io.StringIO(
+            "which\nthere\ntheir\nabout\nwould\nthese\n"
+        )
+
+        with capture() as out:
+            with mock.patch("exercise.random_word", return_value="these"):
+                user.play()
+
+            result = out[0].getvalue().strip()
+            self.assertIn(
+                "_X__O",
+                result,
+                "The result of the function play is not correct. The function should print _X__O for a guess of 'which' and the word 'these'.",
+            )
+
+            self.assertIn(
+                "XXX_X",
+                result,
+                "The result of the function play is not correct. The function should print XXX_X for a guess of 'there' and the word 'these'.",
+            )
+            self.assertIn(
+                "XXXXX",
+                result,
+                "The result of the function play is not correct. The function should print XXXXX for a guess of 'these' and the word 'these'.",
+            )
+            self.assertIn(
+                "you won",
+                result.lower(),
+                "The result of the function play is not correct. The function should print 'You won' when the user guesses the correct word.",
+            )
+
+        mock_input.side_effect = ["which"] * 6
+        mock_open.return_value = io.StringIO(
+            "which\nthere\ntheir\nabout\nwould\nthese\n"
+        )
+
+        with capture() as out:
+            with mock.patch("exercise.random_word", return_value="these"):
+                user.play()
+
+            result = out[0].getvalue().strip()
+            self.assertIn(
+                "you lost",
+                result.lower(),
+                "The result of the function play is not correct. The function should print 'You lost' after six wrong guesses.",
+            )
+
+            self.assertIn(
+                "these",
+                result,
+                "The result of the function play is not correct. The function should print the secret word after six wrong guesses.",
+            )
 
 
 if __name__ == "__main__":

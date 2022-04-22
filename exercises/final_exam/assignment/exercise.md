@@ -29,7 +29,7 @@ version of Wordle preform the following steps:
 - If the users guesses the right word with six guesses or less, the user wins.
 - Otherwise the user loses.
 
-Below is an example execution of your program:
+Below is an example execution of the program:
 
 ```shell
 Please enter a guess: aaaaa
@@ -50,4 +50,16 @@ Please enter a guess: crops
 _OO_O
 You lost!
 The word was: visor
+```
+
+And here is another example execution of the program:
+
+```shell
+Please enter a guess: hello
+_____
+Please enter a guess: there
+XXX_X
+Please enter a guess: these
+XXXXX
+You won!
 ```
