@@ -50,11 +50,10 @@ def play():
     for _ in range(6):
         guess = next_guess(five_letter_words)
         result = check_guess(guess, secret_word)
+        print(result)
         if result == "XXXXX":
             won = True
             break
-        else:
-            print(result)
 
     if won:
         print("You won!")
