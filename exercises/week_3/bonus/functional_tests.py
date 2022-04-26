@@ -5,6 +5,8 @@ import sys
 import unittest
 from unittest import TestCase, mock
 
+from black import out
+
 sys.modules["assess"] = sys.modules[__name__]
 dirname = os.path.dirname(__file__)
 
@@ -43,7 +45,10 @@ def runcaptured(tracing=None, variables=None):
         with capture() as out, trace(tracing):
             if variables is None:
                 variables = {}
-            exec(c, variables)
+            try:
+                exec(c, variables)
+            except StopIteration:  # catch draining of mock inputs when using a while loop
+                pass
         return source, out[0], out[1], variables
 
 
