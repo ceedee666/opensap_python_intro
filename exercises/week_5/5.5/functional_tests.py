@@ -67,14 +67,14 @@ class Testing(TestCase):
         self.assertEqual(
             expected_out,
             result,
-            "The result of the function reaction_path is not correct.",
+            "The result of the function reaction_path() is not correct.",
         )
         result = user.reaction_path(50)
         expected_out = 15.0
         self.assertEqual(
             expected_out,
             result,
-            "The result of the function reaction_path is not correct.",
+            "The result of the function reaction_path() is not correct.",
         )
 
     @mock.patch("builtins.input", create=True)
@@ -88,14 +88,14 @@ class Testing(TestCase):
         self.assertEqual(
             expected_out,
             result,
-            "The result of the function brake_distance is not correct.",
+            "The result of the function brake_distance() is not correct.",
         )
         result = user.brake_distance(50)
         expected_out = 25.0
         self.assertEqual(
             expected_out,
             result,
-            "The result of the function brake_distance is not correct.",
+            "The result of the function brake_distance() is not correct.",
         )
 
     @mock.patch("builtins.input", create=True)
@@ -109,14 +109,14 @@ class Testing(TestCase):
         self.assertEqual(
             expected_out,
             result,
-            "The result of the function stopping_distance is not correct.",
+            "The result of the function stopping_distance() is not correct.",
         )
         result = user.stopping_distance(50)
         expected_out = 40.0
         self.assertEqual(
             expected_out,
             result,
-            "The result of the function stopping_distance is not correct.",
+            "The result of the function stopping_distance() is not correct.",
         )
 
     @mock.patch("builtins.input", create=True)

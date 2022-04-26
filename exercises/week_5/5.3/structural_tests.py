@@ -95,13 +95,13 @@ class Testing(TestCase):
             self.assertEqual(
                 analyzer.stats["range"],
                 1,
-                "You need to use the range function one time to solve this exercise.",
+                "You need to use the range() function one time to solve this exercise.",
             )
 
             self.assertEqual(
                 analyzer.stats["print"],
                 2,
-                "You need to use the print function twice to solve this exercise.",
+                "You need to use the print() function twice to solve this exercise.",
             )
 
 

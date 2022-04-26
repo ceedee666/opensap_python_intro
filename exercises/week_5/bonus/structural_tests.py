@@ -74,18 +74,18 @@ class Testing(TestCase):
             self.assertGreaterEqual(
                 analyzer.stats["int"],
                 1,
-                "You need to use the int function at least once to solve this exercise.",
+                "You need to use the int() function at least once to solve this exercise.",
             )
             self.assertGreaterEqual(
                 analyzer.stats["input"],
                 1,
-                "You need to use the input function once to solve this exercise.",
+                "You need to use the input() function once to solve this exercise.",
             )
 
             self.assertGreaterEqual(
                 analyzer.stats["print"],
                 1,
-                "You need to use the print function once to solve this exercise.",
+                "You need to use the print() function once to solve this exercise.",
             )
 
 

@@ -66,13 +66,13 @@ class Testing(TestCase):
             self.assertEqual(
                 analyzer.stats["input"],
                 3,
-                "You need to use the input function three times to solve this exercise.",
+                "You need to use the input() function three times to solve this exercise.",
             )
 
             self.assertEqual(
                 analyzer.stats["print"],
                 1,
-                "You need to use the print function once to solve this exercise.",
+                "You need to use the print() function once to solve this exercise.",
             )
 
             self.assertEqual(

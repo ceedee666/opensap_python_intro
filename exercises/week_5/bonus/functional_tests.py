@@ -106,13 +106,13 @@ class Testing(TestCase):
         self.assertIsInstance(
             result,
             list,
-            "Your function prim_list is not correct. The function should return a list.",
+            "Your function prime_list() is not correct. The function should return a list.",
         )
 
         self.assertEqual(
             expected_result,
             result,
-            f"Your function prime_list() is not correct. For the number 1000 the resultlist should contain the following number {expected_result}",
+            f"Your function prime_list() is not correct. For the number 1000 the resultlist should contain the following number: {expected_result}",
         )
 
 

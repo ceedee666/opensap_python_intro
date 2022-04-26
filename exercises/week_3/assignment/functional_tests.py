@@ -90,7 +90,7 @@ class Testing(TestCase):
         self.assertIn(
             expected_out,
             output,
-            f"The input should be encrypted correctly. For the input {input} the expected output is {expected_out}. The output of your program was:  {output}",
+            f"The input should be encrypted correctly. For the input {input} the expected output is {expected_out}. The output of your program was: {output}",
         )
 
 

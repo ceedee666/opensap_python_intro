@@ -93,13 +93,13 @@ class Testing(TestCase):
             self.assertGreaterEqual(
                 analyzer.stats["input"],
                 2,
-                "You need to use the input function two times to solve this exercise.",
+                "You need to use the input() function two times to solve this exercise.",
             )
 
             self.assertGreaterEqual(
                 analyzer.stats["print"],
                 1,
-                "You need to use the print function one time to solve this exercise.",
+                "You need to use the print() function one time to solve this exercise.",
             )
 
 

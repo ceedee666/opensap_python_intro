@@ -45,13 +45,13 @@ class Testing(TestCase):
             self.assertGreaterEqual(
                 analyzer.stats["input"],
                 1,
-                "You need to use one call to the input function to get the plain text from the user.",
+                "You need to use one call to the input() function to get the plain text from the user.",
             )
 
             self.assertGreaterEqual(
                 analyzer.stats["for"],
                 1,
-                "You should use a for loop to iterates through the letters of the user input.",
+                "You should use a for loop to iterate through the letters of the user input.",
             )
 
     def test_functions(self):
@@ -70,13 +70,13 @@ class Testing(TestCase):
             self.assertGreaterEqual(
                 analyzer.stats["lower"],
                 1,
-                "You should use the lower method to convert the user input to lower case.",
+                "You should use the lower() method to convert the user input to lower case.",
             )
 
             self.assertGreaterEqual(
                 analyzer.stats["for"],
                 1,
-                "You should use a for loop to iterates through the letters of the user input.",
+                "You should use a for loop to iterate through the letters of the user input.",
             )
 
 

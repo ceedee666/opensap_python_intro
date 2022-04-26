@@ -189,7 +189,7 @@ class Testing(TestCase):
         self.assertEqual(
             expected_out,
             result,
-            f"The result of the function calculate_shift is not correct. For the letter {letter} the result should be {expected_out}.",
+            f"The result of the function calculate_shift() is not correct. For the letter {letter} the result should be {expected_out}.",
         )
 
         letter = "m"
@@ -199,7 +199,7 @@ class Testing(TestCase):
         self.assertEqual(
             expected_out,
             result,
-            f"The result of the function calculate_shift is not correct. For the letter {letter} the result should be {expected_out}.",
+            f"The result of the function calculate_shift() is not correct. For the letter {letter} the result should be {expected_out}.",
         )
 
     @mock.patch("builtins.input", create=True)
@@ -216,7 +216,7 @@ class Testing(TestCase):
         self.assertEqual(
             expected_out,
             result,
-            f"The result of the function encrypt_letter is not correct. For the letter {letter} and the shift {shift} the result should be {expected_out}.",
+            f"The result of the function encrypt_letter() is not correct. For the letter {letter} and the shift {shift} the result should be {expected_out}.",
         )
 
         letter = "w"
@@ -227,7 +227,7 @@ class Testing(TestCase):
         self.assertEqual(
             expected_out,
             result,
-            f"The result of the function encrypt_letter is not correct. For the letter {letter} and the shift {shift} the result should be {expected_out}.",
+            f"The result of the function encrypt_letter() is not correct. For the letter {letter} and the shift {shift} the result should be {expected_out}.",
         )
 
 
