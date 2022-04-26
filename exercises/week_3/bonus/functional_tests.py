@@ -60,7 +60,7 @@ class Testing(TestCase):
         self.assertIn(
             expected_out,
             output,
-            f"You program should only accept shift values between 0 and 25!",
+            f"Your program should only accept shift values between 0 and 25!",
         )
 
         input = "python"
@@ -73,7 +73,7 @@ class Testing(TestCase):
         self.assertIn(
             expected_out,
             output,
-            f"You program should only accept shift values between 0 and 25!",
+            f"Your program should only accept shift values between 0 and 25!",
         )
 
         input = "python"
@@ -86,7 +86,7 @@ class Testing(TestCase):
         self.assertIn(
             expected_out,
             output,
-            f"You program should only accept intergers as the shift value!",
+            f"Your program should only accept integers as the shift value!",
         )
 
     @mock.patch("builtins.input", create=True)
