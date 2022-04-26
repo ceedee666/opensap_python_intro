@@ -5,8 +5,6 @@ import sys
 import unittest
 from unittest import TestCase, mock
 
-from black import out
-
 sys.modules["assess"] = sys.modules[__name__]
 dirname = os.path.dirname(__file__)
 
