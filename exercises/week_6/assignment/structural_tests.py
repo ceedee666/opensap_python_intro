@@ -76,12 +76,12 @@ class Testing(TestCase):
             self.assertGreaterEqual(
                 analyzer.stats["get"],
                 1,
-                "You should use the get method from the requests library to solve this exercise.",
+                "You should use the get() method from the requests library to solve this exercise.",
             )
             self.assertGreaterEqual(
                 analyzer.stats["json"],
                 1,
-                "You should use the json method from the requests library to solve this exercise.",
+                "You should use the json() method from the requests library to solve this exercise.",
             )
 
     def test_in_and_output(self):
@@ -94,13 +94,13 @@ class Testing(TestCase):
             self.assertGreaterEqual(
                 analyzer.stats["input"],
                 1,
-                "You need to use the input function once to solve this exercise.",
+                "You need to use the input() function once to solve this exercise.",
             )
 
             self.assertGreaterEqual(
                 analyzer.stats["print"],
                 2,
-                "You need to use the print function twice to solve this exercise.",
+                "You need to use the print() function twice to solve this exercise.",
             )
 
 
