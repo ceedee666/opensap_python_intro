@@ -8,7 +8,7 @@ The three values are separated by a single whitespace. Prepare a beautified outp
 
 - the name of the item formatted with 15 characters
 - the number of units with 3 digits
-- the price per item with 7 digits, 3 digits after the decimal point
+- the price per item with 7 digits, 2 digits after the decimal point
 - the total price *(number of items * price per item)* with 8 digits in total, 2 digits after the decimal point
 
 If there are two lines with the following content "Apple 5 0.99" and "Cherry 2 11.99", then the beautified output should
