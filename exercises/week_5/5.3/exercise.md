@@ -1,5 +1,3 @@
-# Function `is_even()`
-
 Implement the function `is_even(number)` which gets an integer as input parameter and
 checks, if this input is even or not. The `is_even()` will return the boolean value
 `True` if the value is even and `False` if the input is not even.

@@ -18,4 +18,6 @@ and how many games ended in a draw. The results are written into a file `result.
 	Player2 wins: 48
 	Draws: 29
 
+<br/>
+
 The sum should always be 100.

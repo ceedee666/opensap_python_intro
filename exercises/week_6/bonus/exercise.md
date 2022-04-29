@@ -1,4 +1,4 @@
-# Week 6 Bonus - Compute π using a random number generator
+# Compute π using a random number generator
 
 The number π (Pi) can be calculated using random numbers. Suppose you have a circle
 with radius 1 which is inscribed in a square with a side length of 2 (see figure below). Then the square
@@ -20,7 +20,7 @@ As the relation between the sizes of circle and square is π/4, the relation
 between the points in the circle and the points in the square must be π/4 as
 well. Using this formula, one can now use a random number generator to calculate π.
 
-## Your Task
+# Your Task
 
 Using the library `random` create 10.000 random points inside the square.
 That means generate 10.000 random pairs of values for `x` and `y`. The random value must be between 0 and 1
@@ -34,11 +34,11 @@ the math library as well as the difference.
 
 Below is an example execution of the program. Note that your values might be different.
 
-```
-Calculated value of π: 3.1396
-Value of π from math library: 3.141592653589793
-Difference: -0.0019926535897929476
-```
+
+    Calculated value of π: 3.1396
+    Value of π from math library: 3.141592653589793
+    Difference: -0.0019926535897929476
+
 
 ## Additional Challenge
 

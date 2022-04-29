@@ -1,10 +1,7 @@
-# Week 5 Bonus task: Prime Numbers
-
 [Prime numbers](https://en.wikipedia.org/wiki/Prime_number) are natural numbers greater than 1 which are not divisible by any number beside 1 and the number itself. In other words, the number cannot be composed as a product of two natural numbers other than 1 and the number itself. There are infinite prime numbers and the first ones are:
 
 2, 3, 5, 7, 11, ...
 
-## Your Task
 
 Write a program, that gets an integer through input and creates a list containing all prime numbers until this input. To do so, two functions have to be implemented:
 
@@ -13,14 +10,16 @@ Write a program, that gets an integer through input and creates a list containin
 
 The program finally outputs the list of all prime numbers.
 
-## Example
+# Examples
 
-Example 1:
+**Example 1:**
 
     Up to which number do you want all prime numbers: 100
     [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
-Example 2:
+<br/>
+
+**Example 2:**
 
     Up to which number do you want all prime numbers: 13
     [2, 3, 5, 7, 11, 13]

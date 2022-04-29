@@ -1,4 +1,4 @@
-# Assignment Week 5: Vignère Cipher
+# Vignère Cipher
 
 You already implemented a solution for the [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
 in week 3. As this cipher is quite weak, let's turn to another cipher, the
@@ -33,6 +33,8 @@ to deal with lower case letters. Let's have a look at the following example:
 | Position    | 17  | 0   | 13  | 3   | 14  | 12  | 17  | 0   | 13  | 3   | 14  | 12  | 17  | 0   | 13  | 3   | 14  | 12  | 17  |
 | Secret Text | g   | y   | g   | k   | c   | z   |     | i   | f   |     | p   | q   | r   | u   | g   | l   | t   | g   | c   |
 
+<br/>
+
 ## Your Task
 
 Implement a program, that gets a text as input and in addition a keyword, which is
@@ -44,6 +46,10 @@ the number of shifts.
   and returns the position of this letter in the alphabet (starting with `a` at position 0):
 - Implement a function `encrypt_text()`, that gets a text and a keyword as input and
   returns the encrypted text. This function calls both `calculate_shifts()`and `encrpyt_letter()`
+
+<br/>
+
+---
 
 ### Hint 1
 
@@ -59,11 +65,15 @@ The function `encrypt_text()` should do the following:
   `encrypt_letter()`. The first parameter is the character, identified at the beginning of this list
 - The function `encrypt_letter()` should only be called, if the character is a letter.
 
+<br/>
+
 ### Hint 2
 
 To check if a given character is a letter, you can use the string method `.isalpha ()`. This methods returns `True` if all characters in the string are letters. If there
 is a character, which is not a letter, the method returns `False`. Example: `"A".isalpha()`
 is `True`, whereas `"2".isalpha()` returns `False`.
+
+<br/>
 
 ### Hint 3
 
@@ -71,9 +81,13 @@ Get both the clear text and the keyword by the `input()` function. Before you pa
 these strings to `encrypt_text()` turn all letters into their lower equivalents using
 `.lower()`. Finally, print the return value from `encrypt_text()`.
 
+<br/>
+
 ### Hint 4
 
 If you want to test your programm, the keywords `a` or `Aaa` should result in the clear text.
+
+<br/>
 
 ### Example
 

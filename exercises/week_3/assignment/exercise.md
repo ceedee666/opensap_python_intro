@@ -25,10 +25,12 @@ Here is an example execution of the program:
     Please enter a sentence: python is fun!
     The encrypted sentence is: udymts nx kzs!
 
+<br/>
 
 Note that your program should not encrypt special characters like a space or an exclamation mark. If no substitution is
 defined for a character, the plain text character is used in the encryption as well (e.g. the *!* in the example above).
 
+---
 
 # Hint
 
@@ -43,6 +45,8 @@ The result of the following example
     s = "TEST"
     s = s.lower()
     print(s)
+
+<br/>
 
 is:
 

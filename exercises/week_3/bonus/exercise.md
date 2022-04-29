@@ -19,6 +19,7 @@ Using this substitutions, a plain text can be encrypted:
 - Plaintext: programming python is fun!
 - Encrypted text: uwtlwfrrnsl udymts nx kzs!
 
+
 Your task for the bonus exercise is the implementation of a Caesar cipher with a variable shift. The program should ask
 the user for a number of characters for the shift first. Next the program should ask the user for a plain text sentence
 and print the encrypted text. Here is an example execution of the program:
@@ -28,6 +29,7 @@ and print the encrypted text. Here is an example execution of the program:
     The encrypted sentence is: udymts nx kzs!
 
 <br/>
+
 Here is another execution of the program:
 
     Please enter the number of places to shift: 10
@@ -35,6 +37,7 @@ Here is another execution of the program:
     The encrypted sentence is: zidryx sc pex!
 
 <br/>
+
 And yet another one:
 
     Please enter the number of places to shift: 0
@@ -42,11 +45,16 @@ And yet another one:
     The encrypted sentence is: python is fun!
 
 <br/>
+
 Your program should check that only numbers between 0 and 25 are entered for the number of places to shift!
 
     Please enter the number of places to shift: 60
     You need to enter a number between 0 and 25!
 
+
+<br/>
+
+---
 
 # Hints
 
@@ -54,16 +62,17 @@ Your program should check that only numbers between 0 and 25 are entered for the
    dynamically. This can be done using the
    [find method](https://docs.python.org/3/library/stdtypes.html?highlight=index#str.find) and some calculations:
 
-    abc = "abcdefghijklmnopqrstuvw"
-    char_index = abc.find("f")
-    encrypted_char = abc[char_index + 5]
+        abc = "abcdefghijklmnopqrstuvw"
+        char_index = abc.find("f")
+        encrypted_char = abc[char_index + 5]
 
+    <br/>
 
-1. Note that in the example above there will be an error if char_index +5 is larger then 25. You need to use the modulo
+2. Note that in the example above there will be an error if char_index +5 is larger then 25. You need to use the modulo
    (%) operator to take care of this situation.
-1. In order to check if the user entered a number, the method
+3. In order to check if the user entered a number, the method
    [isdecimal()](https://docs.python.org/3/library/stdtypes.html?highlight=isdigit#str.isdecimal) can be used.
-1. To avoid handling upper and lower case letters it is best to first convert the user input to lower case. After that
+4. To avoid handling upper and lower case letters it is best to first convert the user input to lower case. After that
    you only need to take into account lower case letters. A string can be converted into lower case using the .lower()
    method.
 

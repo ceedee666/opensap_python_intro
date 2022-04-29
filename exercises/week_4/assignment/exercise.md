@@ -7,6 +7,7 @@ number of strings is equal to `row`.  Now, write all the strings into a file `pu
 the content.
 
 # Example
+
 If the file `secret.txt` contains the following input:
 
     #
@@ -22,10 +23,14 @@ If the file `secret.txt` contains the following input:
     #
     .
 
+<br/>
+
 And the file `key.txt` contains the following numbers:
 
     3
     4
+
+<br/>
 
 Then the content in the file `public.txt` should be as follows:
 

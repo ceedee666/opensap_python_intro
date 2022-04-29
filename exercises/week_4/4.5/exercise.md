@@ -17,6 +17,10 @@ look as follows:
     Apple           15   0.99   14.85
     Cherry           2  11.99   23.98
 
+<br/>
+
+---
+
 # Hint
 Read the file line by line and create a list of tuples. Each tuple contains the item (`string`), the number of items
 (`integer`) the price per item (`float`). To identify the individual parts per line, use the method `.split()`. Prepare

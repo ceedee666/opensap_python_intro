@@ -1,5 +1,3 @@
-# Get data from a student
-
 Implement a function named `get_student_data()`. The function should do the following:
 
 - Using `input()` it asks for name, first name and a student-id.
