@@ -5,7 +5,7 @@ class Analyzer(ast.NodeVisitor):
     """Analyzer class to parse & process ast"""
 
     def __init__(self):
-        self.stats = {"open": 0, "strip": 0, "int": 0}
+        self.stats = {"open": 0, "strip": 0, "int": 0, "cheat": 0}
 
     def visit_Call(self, node):
         for sub_node in ast.walk(node):
@@ -19,6 +19,11 @@ class Analyzer(ast.NodeVisitor):
     def visit_Name(self, node):
         if isinstance(node, ast.Name) and node.id == "int":
             self.stats["int"] += 1
+        self.generic_visit(node)
+
+    def visit_Constant(self, node):
+        if node.value == 9853 or node.value == 9760 or node.value == 9745:
+            self.stats["cheat"] += 1
         self.generic_visit(node)
 
 
@@ -43,6 +48,13 @@ class Testing(unittest.TestCase):
         used_opens = analyzer.stats["open"]
         used_strips = analyzer.stats["strip"]
         used_ints = analyzer.stats["int"]
+        cheats = analyzer.stats["cheat"]
+
+        self.assertLessEqual(
+            cheats,
+            0,
+            "Please do not use hardcoded solutions. Anybody could do that... ;-)",
+        )
 
         self.assertEqual(
             1,
