@@ -69,10 +69,10 @@ class Testing(unittest.TestCase):
             "You should always use a with statement when opening a file.",
         )
 
-        self.assertEqual(
+        self.assertGreaterEqual(
             2,
             used_open_read,
-            "You need to open 2 files in read mode to get the input data.",
+            "You need to open only 2 files in read mode to get the input data.",
         )
 
         self.assertEqual(
