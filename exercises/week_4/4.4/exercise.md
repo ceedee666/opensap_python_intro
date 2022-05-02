@@ -9,7 +9,7 @@ indicate that the program is finished, print the following output: "List of even
 # Hint
 
 First read all the numbers as explained in the last exercise and put them into a list. Open the new file for writing. Go
-through the list and check if a number is even. If this is case, change the integer into a string and do not forget to
+through the list and check if a number is even. If this is the case, change the integer into a string and do not forget to
 add a line break. Write this string into the file. Finally implement the print statement.
 
 
