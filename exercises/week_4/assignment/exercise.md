@@ -7,6 +7,12 @@ a string until the string contains `col` characters. Append the string to a list
 Continue, until the number of strings is equal to `row`.  Now, write all the strings into a file `public.txt`. Open the
 the file and check the content.
 
+
+**Please note:**
+When programming your solution in CodeOcean, files created by your program will not be visible. If you want to check the
+content of those files, we suggest to let your code run on your machine (e.g. in a Jupyter Notebook) and check the
+content of the files there.
+
 # Example
 
 If the file `secret.txt` contains the following input:

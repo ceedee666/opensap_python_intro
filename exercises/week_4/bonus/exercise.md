@@ -21,3 +21,9 @@ and how many games ended in a draw. The results are written into a file `result.
 <br/>
 
 The sum should always be 100.
+
+
+**Please note:**
+When programming your solution in CodeOcean, files created by your program will not be visible. If you want to check the
+content of those files, we suggest to let your code run on your machine (e.g. in a Jupyter Notebook) and check the
+content of the files there.
