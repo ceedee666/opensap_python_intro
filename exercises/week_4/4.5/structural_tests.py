@@ -20,12 +20,15 @@ class Analyzer(ast.NodeVisitor):
     def visit_Call(self, node):
         # check if open() was used in read-mode
         for argument in node.args:
-            if (
-                isinstance(argument, ast.Constant)
-                and node.func.id == "open"
-                and argument.value == "r"
-            ):
-                self.stats["open_read"] += 1
+            try:
+                if (
+                    isinstance(argument, ast.Constant)
+                    and node.func.id == "open"
+                    and argument.value == "r"
+                ):
+                    self.stats["open_read"] += 1
+            except AttributeError:
+                pass
 
         if isinstance(node.func, ast.Attribute) and node.func.attr == "split":
             self.stats["split"] += 1

@@ -20,19 +20,22 @@ class Analyzer(ast.NodeVisitor):
     def visit_Call(self, node):
         # check if open() was used in read-mode or in write-mode
         for argument in node.args:
-            if (
-                isinstance(argument, ast.Constant)
-                and node.func.id == "open"
-                and argument.value == "r"
-            ):
-                self.stats["open_read"] += 1
+            try:
+                if (
+                    isinstance(argument, ast.Constant)
+                    and node.func.id == "open"
+                    and argument.value == "r"
+                ):
+                    self.stats["open_read"] += 1
 
-            elif (
-                isinstance(argument, ast.Constant)
-                and node.func.id == "open"
-                and argument.value == "w"
-            ):
-                self.stats["open_write"] += 1
+                elif (
+                    isinstance(argument, ast.Constant)
+                    and node.func.id == "open"
+                    and argument.value == "w"
+                ):
+                    self.stats["open_write"] += 1
+            except AttributeError:
+                pass
 
         self.generic_visit(node)
 
@@ -58,6 +61,7 @@ class Testing(unittest.TestCase):
         used_with_open = analyzer.stats["with_open"]
         used_open_read = analyzer.stats["open_read"]
         used_open_write = analyzer.stats["open_write"]
+        print(used_open_write)
 
         self.assertGreaterEqual(
             used_with_open,

@@ -19,20 +19,23 @@ class Analyzer(ast.NodeVisitor):
 
     def visit_Call(self, node):
         # check if open() was used in read- and in write-mode
-        for argument in node.args:
-            if (
-                isinstance(argument, ast.Constant)
-                and node.func.id == "open"
-                and argument.value == "r"
-            ):
-                self.stats["open_read"] += 1
-            elif (
-                isinstance(argument, ast.Constant)
-                and node.func.id == "open"
-                and argument.value == "w"
-            ):
-                self.stats["open_write"] += 1
-        self.generic_visit(node)
+        try:
+            for argument in node.args:
+                if (
+                    isinstance(argument, ast.Constant)
+                    and node.func.id == "open"
+                    and argument.value == "r"
+                ):
+                    self.stats["open_read"] += 1
+                elif (
+                    isinstance(argument, ast.Constant)
+                    and node.func.id == "open"
+                    and argument.value == "w"
+                ):
+                    self.stats["open_write"] += 1
+            self.generic_visit(node)
+        except AttributeError:
+            pass
 
     def visit_If(self, node):
         self.stats["if"] += 1
