@@ -10,8 +10,6 @@ Write a program, that gets an integer through input and creates a list containin
 
 The program finally outputs the list of all prime numbers.
 
-# Examples
-
 **Example 1:**
 
     Up to which number do you want all prime numbers: 100

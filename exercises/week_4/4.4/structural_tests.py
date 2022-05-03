@@ -50,7 +50,7 @@ class Testing(unittest.TestCase):
         """Setup for just-once actions"""
 
         super().setUpClass()
-        with open("exercise.py", "r") as source:  # TODO: change
+        with open("exercise.py", "r") as source:
             self.code = source.read()
 
     def test_source_code(self):
