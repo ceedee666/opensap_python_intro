@@ -1,8 +1,12 @@
 def encrypt_letter(letter, shift):
     abc = "abcdefghijklmnopqrstuvwxyz"
-    ind = abc.index(letter)
-    ind = (ind + shift) % 26
-    secret_letter = abc[ind]
+    secret_letter = letter
+
+    if letter.isalpha():
+        ind = abc.index(letter)
+        ind = (ind + shift) % 26
+        secret_letter = abc[ind]
+
     return secret_letter
 
 
@@ -21,10 +25,8 @@ def encrypt_text(text, keyword):
     for i in range(len(text)):
         key_letter = keyword[i % len(keyword)]
         shift = calculate_shifts(key_letter)
-        if text[i].isalpha():
-            encrypted_text += encrypt_letter(text[i], shift)
-        else:
-            encrypted_text += text[i]
+        encrypted_text += encrypt_letter(text[i], shift)
+
     return encrypted_text
 
 

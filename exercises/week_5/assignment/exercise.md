@@ -63,7 +63,7 @@ The function `encrypt_text()` should do the following:
 - The identified character of the keyword is taken as input for the function `calculate_shifts()`
 - The output of this function is the key, which is the second parameter for the function
   `encrypt_letter()`. The first parameter is the character, identified at the beginning of this list
-- The function `encrypt_letter()` should only be called, if the character is a letter.
+- The function `encrypt_letter()` should only encrypt letters. If it is called with a special character like `1` or `?` it should simply return this character.
 
 <br/>
 
