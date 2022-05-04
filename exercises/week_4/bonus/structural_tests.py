@@ -1,4 +1,5 @@
-import ast, unittest
+import ast
+import unittest
 from collections import defaultdict
 
 
@@ -10,29 +11,23 @@ class Analyzer(ast.NodeVisitor):
 
     def visit_withitem(self, node):
         # check if open() was used w/ with
-        if (
-            isinstance(node.context_expr, ast.Call)
-            and node.context_expr.func.id == "open"
-        ):
-            self.stats["with_open"] += 1
+        if isinstance(node.context_expr, ast.Call):
+            if isinstance(node.context_expr.func, ast.Name):
+                if node.context_expr.func.id == "open":
+                    self.stats["with_open"] += 1
+
         self.generic_visit(node)
 
     def visit_Call(self, node):
         # check if open() was used in read-mode or in write-mode
-        for argument in node.args:
-            if (
-                isinstance(argument, ast.Constant)
-                and node.func.id == "open"
-                and argument.value == "r"
-            ):
-                self.stats["open_read"] += 1
+        if isinstance(node.func, ast.Name):
+            if node.func.id == "open":
+                self.stats["open"] += 1
 
-            elif (
-                isinstance(argument, ast.Constant)
-                and node.func.id == "open"
-                and argument.value == "w"
-            ):
-                self.stats["open_write"] += 1
+                for argument in node.args:
+                    if isinstance(argument, ast.Constant):
+                        if argument.value == "w":
+                            self.stats["open_write"] += 1
 
         self.generic_visit(node)
 
@@ -53,20 +48,20 @@ class Testing(unittest.TestCase):
     """Testing class with multiple tests"""
 
     @classmethod
-    def setUpClass(self):
+    def setUpClass(cls):
         """Setup for just-once actions"""
 
         super().setUpClass()
         with open("exercise.py", "r") as source:
-            self.code = source.read()
+            cls.code = source.read()
 
-        tree = ast.parse(self.code)  # build the AST
-        self.analyzer = Analyzer()  # create Analyzer instance
-        self.analyzer.visit(tree)  # visit the nodes of the AST
+        tree = ast.parse(cls.code)  # build the AST
+        cls.analyzer = Analyzer()  # create Analyzer instance
+        cls.analyzer.visit(tree)  # visit the nodes of the AST
 
-        self.used_with_open = self.analyzer.stats["with_open"]
-        self.used_open_read = self.analyzer.stats["open_read"]
-        self.used_open_write = self.analyzer.stats["open_write"]
+        cls.used_with_open = cls.analyzer.stats["with_open"]
+        cls.used_open = cls.analyzer.stats["open"]
+        cls.used_open_write = cls.analyzer.stats["open_write"]
 
     def test_file_io(self):
 
@@ -77,15 +72,15 @@ class Testing(unittest.TestCase):
         )
 
         self.assertEqual(
-            2,
-            self.used_open_read,
-            f"You need to open two files in read mode to get the input data, but you opened {self.used_open_read} file(s).",
+            3,
+            self.used_open,
+            f"You need to open three files but you opened {self.used_open} file(s).",
         )
 
         self.assertEqual(
             1,
             self.used_open_write,
-            f"You need to open one file in write mode for the result, but you opened {self.used_open_write} file(s)",
+            f"You need to open one file in write mode to save the result, but you opened {self.used_open_write} file(s) in write mode.",
         )
 
     def test_for_while(self):
