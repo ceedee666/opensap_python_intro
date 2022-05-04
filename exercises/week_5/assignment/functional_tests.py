@@ -230,6 +230,28 @@ class Testing(TestCase):
             f"The result of the function encrypt_letter() is not correct. For the letter {letter} and the shift {shift} the result should be {expected_out}.",
         )
 
+        letter = "1"
+        shift = 10
+        result = user.encrypt_letter(letter, shift)
+
+        expected_out = "1"
+        self.assertEqual(
+            expected_out,
+            result,
+            f"The result of the function encrypt_letter() is not correct. Special letters should not be changed. For the letter {letter} and the shift {shift} the result should be {expected_out}.",
+        )
+
+        letter = "?"
+        shift = 10
+        result = user.encrypt_letter(letter, shift)
+
+        expected_out = "?"
+        self.assertEqual(
+            expected_out,
+            result,
+            f"The result of the function encrypt_letter() is not correct. Special letters should not be changed. For the letter {letter} and the shift {shift} the result should be {expected_out}.",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

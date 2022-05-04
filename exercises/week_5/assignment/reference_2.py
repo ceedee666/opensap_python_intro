@@ -1,14 +1,18 @@
+import string
+
+
 def encrypt_letter(letter, shift):
-    abc = "abcdefghijklmnopqrstuvwxyz"
-    ind = abc.index(letter)
-    ind = (ind + shift) % 26
-    secret_letter = abc[ind]
+    if letter in string.ascii_lowercase:
+        ind = string.ascii_lowercase.index(letter)
+        ind = (ind + shift) % 26
+        secret_letter = string.ascii_lowercase[ind]
+    else:
+        secret_letter = letter
     return secret_letter
 
 
 def calculate_shifts(letter):
-    abc = "abcdefghijklmnopqrstuvwxyz"
-    ind = abc.index(letter)
+    ind = string.ascii_lowercase.index(letter)
     return ind
 
 
