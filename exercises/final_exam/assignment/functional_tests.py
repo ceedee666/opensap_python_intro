@@ -53,15 +53,22 @@ class ReferenceImplementation:
         return random.choice(word_list)
 
     def check_guess(self, guess, word):
-        result = ""
+        word_list = list(word)
+        result = ["_"] * len(word)
+
+        # check for exact matches chars
         for i, l in enumerate(guess):
-            if l == word[i]:
-                result += "X"
-            elif l in word:
-                result += "O"
-            else:
-                result += "_"
-        return result
+            if l == word_list[i]:
+                result[i] = "X"
+                word_list[i] = " "
+
+        # check for chars are wrong position
+        for i, l in enumerate(guess):
+            if l in word_list:
+                result[i] = "O"
+                word_list[word_list.index(l)] = " "
+
+        return "".join(result)
 
     def is_real_word(self, guess, word_list):
         return guess in word_list
@@ -145,6 +152,12 @@ class Testing(TestCase):
             "The result of the function check_guess is not correct. The function should return 'XXXXX' for a guess of 'bbbbb' and the word 'bbbbb'.",
         )
 
+    @mock.patch("builtins.input", create=True)
+    def test_check_guess_2(self, mock_input):
+        mock_input.side_effect = ["world"] * 30
+        with capture():
+            import exercise as user
+
         result = user.check_guess("world", "words")
         expected_out = "XXX_O"
         self.assertEqual(
@@ -161,6 +174,47 @@ class Testing(TestCase):
             "The result of the function check_guess is not correct. The function should return 'XX__X' for a guess of 'whole' and the word 'white'.",
         )
 
+    @mock.patch("builtins.input", create=True)
+    def test_check_guess_3(self, mock_input):
+        mock_input.side_effect = ["world"] * 30
+        with capture():
+            import exercise as user
+        result = user.check_guess("cocoa", "taboo")
+        expected_out = "_O_XO"
+        self.assertEqual(
+            expected_out,
+            result,
+            "The result of the function check_guess is not correct. The function should return '_O_XO' for a guess of 'cocoa' and the word 'taboo'.",
+        )
+        result = user.check_guess("moons", "taboo")
+        expected_out = "_OO__"
+        self.assertEqual(
+            expected_out,
+            result,
+            "The result of the function check_guess is not correct. The function should return '_OO__' for a guess of 'moons' and the word 'taboo'.",
+        )
+
+        result = user.check_guess("carat", "train")
+        expected_out = "_OO_O"
+        self.assertEqual(
+            expected_out,
+            result,
+            "The result of the function check_guess is not correct. The function should return '_OO_O' for a guess of 'carat' and the word 'train'.",
+        )
+
+        result = user.check_guess("carat", "taboo")
+        expected_out = "_X__O"
+        self.assertEqual(
+            expected_out,
+            result,
+            "The result of the function check_guess is not correct. The function should return '_X__O' for a guess of 'carat' and the word 'taboo'.",
+        )
+
+    @mock.patch("builtins.input", create=True)
+    def test_check_guess_random_word(self, mock_input):
+        mock_input.side_effect = ["world"] * 30
+        with capture():
+            import exercise as user
         reference = ReferenceImplementation()
         word_list = reference.word_list()
         guess = reference.random_word(word_list)
@@ -200,6 +254,11 @@ class Testing(TestCase):
             "The result of the function is_real_word is not correct. The function should return True for a word that is in the list of words.",
         )
 
+    @mock.patch("builtins.input", create=True)
+    def test_is_real_word_random(self, mock_input):
+        mock_input.side_effect = ["world"] * 30
+        with capture():
+            import exercise as user
         reference = ReferenceImplementation()
         word_list = reference.word_list()
         word = reference.random_word(word_list)
@@ -273,9 +332,9 @@ class Testing(TestCase):
 
             result = out[0].getvalue().strip()
             self.assertIn(
-                "_X__O",
+                "_X___",
                 result,
-                "The result of the function play is not correct. The function should print _X__O for a guess of 'which' and the word 'these'.",
+                "The result of the function play is not correct. The function should print _X___ for a guess of 'which' and the word 'these'.",
             )
 
             self.assertIn(
@@ -294,6 +353,13 @@ class Testing(TestCase):
                 "The result of the function play is not correct. The function should print 'You won' when the user guesses the correct word.",
             )
 
+    @mock.patch("builtins.open")
+    @mock.patch("builtins.input")
+    def test_play_2(self, mock_input, mock_open):
+
+        mock_input.side_effect = ["world"] * 30
+        with capture():
+            import exercise as user
         mock_input.side_effect = ["which"] * 6
         mock_open.return_value = io.StringIO(
             "which\nthere\ntheir\nabout\nwould\nthese\n"
