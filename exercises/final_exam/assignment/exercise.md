@@ -55,6 +55,8 @@ Below is an example execution of the program:
     You lost!
     The word was: visor
 
+<br>
+
 And here is another example execution of the program:
 
     Please enter a guess: hello
