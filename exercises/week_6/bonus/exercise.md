@@ -1,6 +1,3 @@
-# **TODO: Update Formulas**
-
-
 # Compute π using a random number generator
 
 The number *π (Pi)* can be calculated using random numbers. Suppose you have a circle
