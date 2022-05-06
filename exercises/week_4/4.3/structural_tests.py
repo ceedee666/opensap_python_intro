@@ -19,11 +19,6 @@ class Analyzer(ast.NodeVisitor):
                 self.stats["strip"] += 1
         self.generic_visit(node)
 
-    def dddvisit_Name(self, node):
-        if isinstance(node, ast.Name) and node.id == "int":
-            self.stats["int"] += 1
-        self.generic_visit(node)
-
     def visit_Constant(self, node):
         if node.value == 9853 or node.value == 9760 or node.value == 9745:
             self.stats["cheat"] += 1
