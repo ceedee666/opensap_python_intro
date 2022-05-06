@@ -55,6 +55,7 @@ the number of shifts.
 
 The function `encrypt_text()` should do the following:
 
+- The `encrypt_text()` function should turn the text and the keyword into lower case.
 - The function steps through the clear text character by character.
 - A counter is required, which steps through the letters of the keyword.
 - The counter determines the letter from the keyword, which defines the number of shifts.
@@ -77,15 +78,15 @@ is `True`, whereas `"2".isalpha()` returns `False`.
 
 ### Hint 3
 
-Get both the clear text and the keyword by the `input()` function. Before you pass
-these strings to `encrypt_text()` turn all letters into their lower equivalents using
+Get both the clear text and the keyword by the `input()` function. The `encrypt_text()` function
+should turn the text and the keyword into lower case equivalents using
 `.lower()`. Finally, print the return value from `encrypt_text()`.
 
 <br/>
 
 ### Hint 4
 
-If you want to test your programm, the keywords `a` or `Aaa` should result in the clear text.
+If you want to test your program, the keywords `a` or `Aaa` should result in the clear text `aaa`.
 
 <br/>
 
