@@ -49,7 +49,7 @@ library can be used to mapped the response from JSON to Python data types `dict`
 # Assignment
 
 Write a program that asks the user for a search term. Perform a search using the iTunes search service
-for the entity type album. Teh program should then print how many serach results where returned.
+for the entity type album. The program should then print how many search results where returned.
 For each result print the artist name, the album name and track count.
 
 Below is an example execution of the program. Note that the output is abbreviated.
