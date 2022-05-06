@@ -1,4 +1,5 @@
-import ast, unittest
+import ast
+import unittest
 
 
 class Analyzer(ast.NodeVisitor):
@@ -8,15 +9,17 @@ class Analyzer(ast.NodeVisitor):
         self.stats = {"open": 0, "strip": 0, "int": 0, "cheat": 0}
 
     def visit_Call(self, node):
-        for sub_node in ast.walk(node):
-            if isinstance(sub_node, ast.Name) and sub_node.id == "open":
+        if isinstance(node.func, ast.Name):
+            if node.func.id == "open":
                 self.stats["open"] += 1
-
-            if isinstance(sub_node, ast.Attribute) and sub_node.attr == "strip":
+            elif node.func.id == "int":
+                self.stats["int"] += 1
+        elif isinstance(node.func, ast.Attribute):
+            if node.func.attr == "strip":
                 self.stats["strip"] += 1
         self.generic_visit(node)
 
-    def visit_Name(self, node):
+    def dddvisit_Name(self, node):
         if isinstance(node, ast.Name) and node.id == "int":
             self.stats["int"] += 1
         self.generic_visit(node)
@@ -31,12 +34,12 @@ class Testing(unittest.TestCase):
     """Testing class with multiple tests"""
 
     @classmethod
-    def setUpClass(self):
+    def setUpClass(cls):
         """Setup for just-once actions"""
 
         super().setUpClass()
         with open("exercise.py", "r") as source:
-            self.code = source.read()
+            cls.code = source.read()
 
     def test_source_code(self):
         """Analyzer class to parse & process AST"""
