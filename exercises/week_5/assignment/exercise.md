@@ -4,7 +4,7 @@ You already implemented a solution for the [Caesar cipher](https://en.wikipedia.
 in week 3. As this cipher is quite weak, let's turn to another cipher, the
 [Vignère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher).
 
-Like the Caesar cipher, the Vignère cipher is a simple substitiution algorithm,
+Like the Caesar cipher, the Vignère cipher is a simple substitution algorithm,
 that means, each letter is replaced by another letter. In the Caesar cipher, each
 letter is shifted the same number of times. And this number is the key. In Vignère
 these number of shifts change from letter to letter. The number of shifts are given
@@ -17,14 +17,14 @@ to deal with lower case letters. Let's have a look at the following example:
 - In the second line there is the repeated keyword `random`.
 - In the third line the letter from the keyword is replaced by it's position in the
   alphabet (a: 0, b: 1, c: 2, ... z: 25). As `r` is on position 17, there is a 17 in
-  the first position of the third row. This postion determines how often the corresponding
+  the first position of the third row. This position determines how often the corresponding
   letter from the clear text has to be shifted.
 - In the fourth line you can see the secret text. The first letter `p` from the clear
   text is shifted 17 times and results in `g` (as the end of the alphabet is already
   reached after 11 shifts, one starts again at the beginning of the alphabet). The second
   letter `y` is shifted 0 times as the `a` from `random` is at position 0 of the alphabet.
   Thus, this `y` is mapped to `y`. Important: The blank is not shifted as it is no
-  letter. However the repetion of the keyword in line two is not influenced by that.
+  letter. However the repetition of the keyword in line two is not influenced by that.
 
 |             |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
 | ----------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -46,7 +46,7 @@ the number of shifts.
 - Implement a function `calculate_shifts()`, that gets a letter as input parameter
   and returns the position of this letter in the alphabet (starting with `a` at position 0):
 - Implement a function `encrypt_text()`, that gets a text and a keyword as input and
-  returns the encrypted text. This function calls both `calculate_shifts()`and `encrpyt_letter()`
+  returns the encrypted text. This function calls both `calculate_shifts()`and `encrypt_letter()`
 
 <br/>
 

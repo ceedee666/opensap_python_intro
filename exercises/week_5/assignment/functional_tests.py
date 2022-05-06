@@ -124,7 +124,7 @@ class Testing(TestCase):
         self.assertEqual(
             text,
             result,
-            f"Special characters should be ignored and not changed by the function encrpyt_text(). For the input {text} and the keyword {keyword} the output of your encrypt_text() function was: {result}",
+            f"Special characters should be ignored and not changed by the function encrypt_text(). For the input {text} and the keyword {keyword} the output of your encrypt_text() function was: {result}",
         )
 
         keyword = "python"
@@ -134,7 +134,7 @@ class Testing(TestCase):
         self.assertEqual(
             text,
             result,
-            f"Spaces should not be removed the the function encrpyt_text(). For the input {text} and the keyword {keyword} the output of your encrypt_text() function was: {result}",
+            f"Spaces should not be removed the the function encrypt_text(). For the input {text} and the keyword {keyword} the output of your encrypt_text() function was: {result}",
         )
 
         keyword = "aaaaa"
@@ -145,7 +145,7 @@ class Testing(TestCase):
         self.assertEqual(
             result,
             expected_result,
-            f"A text should be encrypted correctly by your function encrpyt_text(). For the input {text} and the keyword {keyword} the output of your encrypt_text() function was: {result}",
+            f"A text should be encrypted correctly by your function encrypt_text(). For the input {text} and the keyword {keyword} the output of your encrypt_text() function was: {result}",
         )
 
         keyword = "".join(random.sample(string.ascii_lowercase, 5))
@@ -156,7 +156,7 @@ class Testing(TestCase):
         self.assertEqual(
             result,
             expected_result,
-            f"A text should be encrypted correctly by your function encrpyt_text(). For the input {text} and the keyword {keyword} the output of your encrypt_text() function was: {result}",
+            f"A text should be encrypted correctly by your function encrypt_text(). For the input {text} and the keyword {keyword} the output of your encrypt_text() function was: {result}",
         )
 
     @mock.patch("builtins.input", create=True)
