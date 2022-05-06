@@ -32,6 +32,7 @@ to deal with lower case letters. Let's have a look at the following example:
 | Keyword     | r   | a   | n   | d   | o   | m   | r   | a   | n   | d   | o   | m   | r   | a   | n   | d   | o   | m   | r   |
 | Position    | 17  | 0   | 13  | 3   | 14  | 12  | 17  | 0   | 13  | 3   | 14  | 12  | 17  | 0   | 13  | 3   | 14  | 12  | 17  |
 | Secret Text | g   | y   | g   | k   | c   | z   |     | i   | f   |     | p   | q   | r   | u   | g   | l   | t   | g   | c   |
+{: .table}
 
 <br/>
 
