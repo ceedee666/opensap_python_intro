@@ -1,5 +1,6 @@
 import contextlib
 import io
+import json
 import os
 import random
 import sys
@@ -69,13 +70,21 @@ class RefernceSolution:
 class Testing(TestCase):
     @mock.patch("builtins.input", create=True)
     def test_search_gold(self, mocked_input):
+        with mock.patch("requests.get") as mock_request:
+            with open("./mock_search_results/search_result_gold.json") as f:
+                mock_request.return_value.json.return_value = json.loads(f.read())
+                mock_request.return_value.status_code = 200
 
-        result_count, albums = RefernceSolution().search_itunes("gold")
+            result_count, albums = RefernceSolution().search_itunes("gold")
 
-        mocked_input.side_effect = ["gold"]
-        self.code, self.std_out, self.error_out, _ = runcaptured()
-        output = self.std_out.getvalue().strip()
-        lines = output.split("\n")
+        with mock.patch("requests.get") as mock_request:
+            with open("./mock_search_results/search_result_gold.json") as f:
+                mock_request.return_value.json.return_value = json.loads(f.read())
+                mock_request.return_value.status_code = 200
+            mocked_input.side_effect = ["gold"]
+            self.code, self.std_out, self.error_out, _ = runcaptured()
+            output = self.std_out.getvalue().strip()
+            lines = output.split("\n")
 
         self.assertIn(
             str(result_count),
