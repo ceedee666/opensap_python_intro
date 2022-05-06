@@ -27,7 +27,7 @@ to deal with lower case letters. Let's have a look at the following example:
   letter. However the repetition of the keyword in line two is not influenced by that.
 
 |             |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |
-| ----------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ----------- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | Clear Text  | p   | y   | t   | h   | o   | n   |     | i   | s   |     | b   | e   | a   | u   | t   | i   | f   | u   | l   |
 | Keyword     | r   | a   | n   | d   | o   | m   | r   | a   | n   | d   | o   | m   | r   | a   | n   | d   | o   | m   | r   |
 | Position    | 17  | 0   | 13  | 3   | 14  | 12  | 17  | 0   | 13  | 3   | 14  | 12  | 17  | 0   | 13  | 3   | 14  | 12  | 17  |
