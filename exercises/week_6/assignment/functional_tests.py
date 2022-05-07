@@ -71,14 +71,14 @@ class Testing(TestCase):
     @mock.patch("builtins.input", create=True)
     def test_search_gold(self, mocked_input):
         with mock.patch("requests.get") as mock_request:
-            with open("./mock_search_results/search_result_gold.json") as f:
+            with open("mock_search_result_gold.json") as f:
                 mock_request.return_value.json.return_value = json.loads(f.read())
                 mock_request.return_value.status_code = 200
 
             result_count, albums = RefernceSolution().search_itunes("gold")
 
         with mock.patch("requests.get") as mock_request:
-            with open("./mock_search_results/search_result_gold.json") as f:
+            with open("mock_search_result_gold.json") as f:
                 mock_request.return_value.json.return_value = json.loads(f.read())
                 mock_request.return_value.status_code = 200
             mocked_input.side_effect = ["gold"]
