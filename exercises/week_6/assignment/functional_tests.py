@@ -87,6 +87,12 @@ class Testing(TestCase):
             lines = output.split("\n")
 
         self.assertIn(
+            "https://itunes.apple.com/search?term",
+            mock_request.call_args.args[0],
+            "You should make a request to the iTunes search API using the URL provided in the instructions.",
+        )
+
+        self.assertIn(
             str(result_count),
             lines[0],
             f"The first line of the output should contain the number of search results. For the search term 'gold' this should {result_count}.",
@@ -128,12 +134,28 @@ class Testing(TestCase):
 
         search_term = random.choice(search_terms)
 
-        result_count, albums = RefernceSolution().search_itunes(search_term)
+        with mock.patch("requests.get") as mock_request:
+            with open(f"mock_search_result_{search_term}.json") as f:
+                mock_request.return_value.json.return_value = json.loads(f.read())
+                mock_request.return_value.status_code = 200
 
-        mocked_input.side_effect = [search_term]
-        self.code, self.std_out, self.error_out, _ = runcaptured()
-        output = self.std_out.getvalue().strip()
-        lines = output.split("\n")
+            result_count, albums = RefernceSolution().search_itunes(search_term)
+
+        with mock.patch("requests.get") as mock_request:
+            with open(f"mock_search_result_{search_term}.json") as f:
+                mock_request.return_value.json.return_value = json.loads(f.read())
+                mock_request.return_value.status_code = 200
+
+            mocked_input.side_effect = [search_term]
+            self.code, self.std_out, self.error_out, _ = runcaptured()
+            output = self.std_out.getvalue().strip()
+            lines = output.split("\n")
+
+        self.assertIn(
+            "https://itunes.apple.com/search?term",
+            mock_request.call_args.args[0],
+            "You should make a request to the iTunes search API using the URL provided in the instructions.",
+        )
 
         self.assertIn(
             str(result_count),
