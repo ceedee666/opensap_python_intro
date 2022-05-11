@@ -87,7 +87,7 @@ class Testing(TestCase):
             lines = output.split("\n")
 
         self.assertIn(
-            "https://itunes.apple.com/search?term",
+            "https://itunes.apple.com/search",
             mock_request.call_args.args[0],
             "You should make a request to the iTunes search API using the URL provided in the instructions.",
         )
@@ -152,7 +152,7 @@ class Testing(TestCase):
             lines = output.split("\n")
 
         self.assertIn(
-            "https://itunes.apple.com/search?term",
+            "https://itunes.apple.com/search",
             mock_request.call_args.args[0],
             "You should make a request to the iTunes search API using the URL provided in the instructions.",
         )
