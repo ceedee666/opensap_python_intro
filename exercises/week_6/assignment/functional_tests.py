@@ -49,7 +49,7 @@ def runcaptured(tracing=None, variables=None):
         return source, out[0], out[1], variables
 
 
-class RefernceSolution:
+class ReferenceSolution:
     def search_itunes(self, search_term):
         import requests
 
@@ -75,7 +75,7 @@ class Testing(TestCase):
                 mock_request.return_value.json.return_value = json.loads(f.read())
                 mock_request.return_value.status_code = 200
 
-            result_count, albums = RefernceSolution().search_itunes("gold")
+            result_count, albums = ReferenceSolution().search_itunes("gold")
 
         with mock.patch("requests.get") as mock_request:
             with open("mock_search_result_gold.json") as f:
@@ -139,7 +139,7 @@ class Testing(TestCase):
                 mock_request.return_value.json.return_value = json.loads(f.read())
                 mock_request.return_value.status_code = 200
 
-            result_count, albums = RefernceSolution().search_itunes(search_term)
+            result_count, albums = ReferenceSolution().search_itunes(search_term)
 
         with mock.patch("requests.get") as mock_request:
             with open(f"mock_search_result_{search_term}.json") as f:
