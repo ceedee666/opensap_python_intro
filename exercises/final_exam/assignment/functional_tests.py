@@ -65,8 +65,9 @@ class ReferenceImplementation:
         # check for chars are wrong position
         for i, l in enumerate(guess):
             if l in word_list:
-                result[i] = "O"
-                word_list[word_list.index(l)] = " "
+                if result[i] != "X":
+                    result[i] = "O"
+                    word_list[word_list.index(l)] = " "
 
         return "".join(result)
 
@@ -208,6 +209,14 @@ class Testing(TestCase):
             expected_out,
             result,
             "The result of the function check_guess is not correct. The function should return '_X__O' for a guess of 'carat' and the word 'taboo'.",
+        )
+
+        result = user.check_guess("raver", "heres")
+        expected_out = "O__X_"
+        self.assertEqual(
+            expected_out,
+            result,
+            "The result of the function check_guess is not correct. The function should return 'O__X_' for a guess of 'raver' and the word 'heres'.",
         )
 
     @mock.patch("builtins.input", create=True)

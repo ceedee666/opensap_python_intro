@@ -24,8 +24,9 @@ def check_guess(guess, word):
     # check for chars are wrong position
     for i, l in enumerate(guess):
         if l in word_list:
-            result[i] = "O"
-            word_list[word_list.index(l)] = " "
+            if result[i] != "X":
+                result[i] = "O"
+                word_list[word_list.index(l)] = " "
 
     return "".join(result)
 
