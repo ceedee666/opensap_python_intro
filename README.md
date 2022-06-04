@@ -1,8 +1,7 @@
 # About
 
 This repository contains several [Jupyter](https://jupyter.org/) notebooks and correspondign exercises.
-These notebooks are the course material for the upcoming
-[openSAP](https://open.sap.com/) course [Python 🐍 for Beginners](https://open.sap.com/courses/python1).
+These notebooks are the course material for the [openSAP](https://open.sap.com/) course [Python 🐍 for Beginners](https://open.sap.com/courses/python1).
 
 ## Contributing
 
